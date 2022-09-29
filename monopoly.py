@@ -1,16 +1,11 @@
-from operator import truediv
 import pygame
-
-WIDTH, HEIGHT = 1000, 500
-WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Monopoly")
-
-def main():
-    run = True
-    while run:
+from sys import exit
+(width, height) = (1000, 500)
+screen = pygame.display.set_mode((width, height))
+pygame.display.flip()
+pygame.display.set_caption("Hello World")
+while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                run = False
-
-    pygame.quit()
-
+                pygame.quit()
+                exit()
