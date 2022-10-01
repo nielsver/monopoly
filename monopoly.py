@@ -3,6 +3,7 @@ from hashlib import blake2b
 from string import whitespace
 from time import monotonic
 from turtle import clear, width
+from xmlrpc.client import TRANSPORT_ERROR
 import pygame, sys
 from pygame.locals import *
 
@@ -35,13 +36,17 @@ Largefont = pygame.font.SysFont(None, 80)
 windowSurface.fill(BLACK)
 moneybag = pygame.image.load('./moneysign.jpg').convert()
 background = pygame.image.load('./monopoly_men.png').convert()
+Monopolymen = pygame.image.load('./Monopoly-Man-1.png').convert()
 windowSurface.blit(moneybag,(800,0))
 windowSurface.blit(background,(0, 0))
 
 text = basicFont.render('Play', True, RED)
 Monopoly = Largefont.render('Monopoly',True, BLUE)
 
-
+def next():
+    windowSurface.fill(BLACK)
+    windowSurface.blit(Monopolymen,(500,0))
+    pygame.display.update
 
 while True:
       
@@ -57,9 +62,8 @@ while True:
             #if the mouse is clicked on the
             # button the game is terminated
             if width/2-50 <= mouse[0] <= width/2+90 and height/2 <= mouse[1] <= height/2+40:
-                windowSurface.fill(BLACK)
-                Monopoly = Largefont.render('Players',True, BLUE)
-                pygame.display.update() 
+                Monopoly = Largefont.render('Players', True, BLUE)
+                next()
 
 
     # stores the (x,y) coordinates into
