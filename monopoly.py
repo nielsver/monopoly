@@ -1,7 +1,8 @@
 from cgitb import grey
 from hashlib import blake2b
 from string import whitespace
-from turtle import width
+from time import monotonic
+from turtle import clear, width
 import pygame, sys
 from pygame.locals import *
 
@@ -22,7 +23,7 @@ height = windowSurface.get_height()
 BLACK = (0,0,0)
 RED = (255,0,0)
 GREEN = (0,255,0)
-BLUE = (0,0,255)
+BLUE = (0,96,255)
 WHITE = (255,255,255)
 
 
@@ -38,7 +39,7 @@ windowSurface.blit(moneybag,(800,0))
 windowSurface.blit(background,(0, 0))
 
 text = basicFont.render('Play', True, RED)
-Monopoly = Largefont.render('monopoly',True, RED)
+Monopoly = Largefont.render('Monopoly',True, BLUE)
 
 
 
@@ -57,6 +58,8 @@ while True:
             # button the game is terminated
             if width/2-50 <= mouse[0] <= width/2+90 and height/2 <= mouse[1] <= height/2+40:
                 windowSurface.fill(BLACK)
+                Monopoly = Largefont.render('Players',True, BLUE)
+                pygame.display.update() 
 
 
     # stores the (x,y) coordinates into
@@ -78,3 +81,4 @@ while True:
     windowSurface.blit(Monopoly, (width/2-120,height-200))
     #Draw the window onto the screen
     pygame.display.update() 
+
