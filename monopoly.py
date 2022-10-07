@@ -1,5 +1,7 @@
 from cgitb import grey
 from hashlib import blake2b
+from pickle import TRUE
+from re import T
 from string import whitespace
 from time import monotonic
 from turtle import clear, width
@@ -23,7 +25,7 @@ height = windowSurface.get_height()
 #Set up the colors
 BLACK = (0,0,0)
 RED = (255,0,0)
-GREEN = (0,255,0)
+GREEN = (34,139,34)
 BLUE = (0,96,255)
 WHITE = (255,255,255)
 
@@ -43,10 +45,59 @@ windowSurface.blit(background,(0, 0))
 text = basicFont.render('Play', True, RED)
 Monopoly = Largefont.render('Monopoly',True, BLUE)
 
+def Player1():
+    pygame.quit()
+def Player2():
+    pygame.quit()
+def Player3():
+    pygame.quit()
+def Player4():
+    pygame.quit()
+    
 def next():
     windowSurface.fill(BLACK)
     windowSurface.blit(Monopolymen,(500,0))
-    pygame.display.update
+    one = basicFont.render('One', True, RED)
+    two = basicFont.render('Two', True, RED)
+    three = basicFont.render('Three', True, RED)
+    four = basicFont.render('Four', True, RED)
+
+    while True:
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                        
+                    #if the mouse is clicked on the
+                    # button the game is will go to players
+                    if 0 <= mouse[0] <= 300 and height/2 <= mouse[1] <= height/2+40:
+                        Player1()
+                    if 350 <= mouse[0] <= 650 and height/2 <= mouse[1] <= height/2+40:
+                        Player2()
+                    if 700 <= mouse[0] <= 1000 and height/2 <= mouse[1] <= height/2+40:
+                        Player3()
+                    if 1050 <= mouse[0] <= 1400 and height/2 <= mouse[1] <= height/2+40:
+                        Player4()
+
+        
+        #background buttons
+        pygame.draw.ellipse(windowSurface,GREEN,[115,height/2-10,140,55])
+
+        pygame.draw.ellipse(windowSurface,GREEN,[460,height/2-10,140,55])          
+
+        pygame.draw.ellipse(windowSurface,GREEN,[825,height/2-10,140,55])
+
+        pygame.draw.ellipse(windowSurface,GREEN,[1160,height/2-10,140,55])
+
+        # superimposing the text onto our button
+        windowSurface.blit(one , (150,height/2))
+        windowSurface.blit(two , (500,height/2))
+        windowSurface.blit(three , (850,height/2))
+        windowSurface.blit(four , (1200,height/2))
+        pygame.display.update
 
 while True:
       
@@ -60,9 +111,13 @@ while True:
         if event.type == pygame.MOUSEBUTTONDOWN:
               
             #if the mouse is clicked on the
-            # button the game is terminated
+            # button the game is will go to players
             if width/2-50 <= mouse[0] <= width/2+90 and height/2 <= mouse[1] <= height/2+40:
                 Monopoly = Largefont.render('Players', True, BLUE)
+                text = basicFont.render('', True, BLACK)
+                pygame.draw.ellipse(windowSurface,BLACK,[width/2-55,height/2-10,140,55])
+                pygame.display.update
+                pygame.display.flip()
                 next()
 
 
@@ -70,16 +125,12 @@ while True:
     # the variable as a tuple
     mouse = pygame.mouse.get_pos()
       
-    # if mouse is hovered on a button it
-    # changes to lighter shade 
-    if width/2-50 <= mouse[0] <= width/2+90 and height/2 <= mouse[1] <= height/2+40:
-        pygame.draw.rect(windowSurface,GREEN,[width/2-50,height/2,120,40])
-          
-    else:
-        pygame.draw.rect(windowSurface,BLACK,[width/2-50,height/2,120,40])
+    #background button
+    pygame.draw.ellipse(windowSurface,GREEN,[width/2-55,height/2-10,140,55])
               
 
     # superimposing the text onto our button
+    
     windowSurface.blit(text , (width/2-20,height/2))
     # set monopoly
     windowSurface.blit(Monopoly, (width/2-120,height-200))
