@@ -116,7 +116,6 @@ while True:
             #if the mouse is clicked on the
             # button the game is will go to players
             if width/2-50 <= mouse[0] <= width/2+90 and height/2 <= mouse[1] <= height/2+40:
-                Monopoly = Largefont.render('Players', True, BLUE)
                 text = basicFont.render('', True, BLACK)
                 pygame.draw.ellipse(windowSurface,BLACK,[width/2-55,height/2-10,140,55])
                 pygame.display.update()
