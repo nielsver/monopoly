@@ -45,6 +45,7 @@ windowSurface.blit(background,(0, 0))
 text = basicFont.render('Play', True, RED)
 Monopoly = Largefont.render('Monopoly',True, BLUE)
 
+
 def Player1():
     pygame.quit()
 def Player2():
@@ -56,7 +57,8 @@ def Player4():
     
 def next():
     windowSurface.fill(BLACK)
-    windowSurface.blit(Monopolymen,(500,0))
+    windowSurface.blit(Monopolymen,(500,50))
+    Players = Largefont.render('Players', True,BLUE)
     one = basicFont.render('One', True, RED)
     two = basicFont.render('Two', True, RED)
     three = basicFont.render('Three', True, RED)
@@ -97,7 +99,8 @@ def next():
         windowSurface.blit(two , (500,height/2))
         windowSurface.blit(three , (850,height/2))
         windowSurface.blit(four , (1200,height/2))
-        pygame.display.update
+        windowSurface.blit(Players,(width/2-120,height-200))
+        pygame.display.update()
 
 while True:
       
@@ -116,7 +119,7 @@ while True:
                 Monopoly = Largefont.render('Players', True, BLUE)
                 text = basicFont.render('', True, BLACK)
                 pygame.draw.ellipse(windowSurface,BLACK,[width/2-55,height/2-10,140,55])
-                pygame.display.update
+                pygame.display.update()
                 pygame.display.flip()
                 next()
 
