@@ -1,9 +1,12 @@
 from cgitb import grey
 from hashlib import blake2b
+from os import remove
 from pickle import TRUE
 from re import T
+from sre_parse import WHITESPACE
 from string import whitespace
 from time import monotonic
+from tokenize import Whitespace
 from turtle import clear, width
 from xmlrpc.client import TRANSPORT_ERROR
 import pygame, sys
@@ -47,13 +50,44 @@ Monopoly = Largefont.render('Monopoly',True, BLUE)
 
 
 def Player1():
-    pygame.quit()
+    windowSurface.fill(WHITE)
+    
+    pygame.display.update()
+    print("player 1")
 def Player2():
-    pygame.quit()
+    windowSurface.fill(WHITE)
+    pygame.display.update()
+    print("player 2")
 def Player3():
-    pygame.quit()
+    windowSurface.fill(WHITE)
+    pygame.display.update()
+    print("player 3")
 def Player4():
-    pygame.quit()
+    windowSurface.fill(WHITE)
+    pygame.display.update()
+    print("player 4")
+
+def removenext(Players,one, two, three, four):
+    Players = Largefont.render('', True,BLUE)
+    one = basicFont.render('', True, RED)
+    two = basicFont.render('', True, RED)
+    three = basicFont.render('', True, RED)
+    four = basicFont.render('', True, RED)
+        #background buttons
+    pygame.draw.ellipse(windowSurface,WHITE,[115,height/2-10,140,55])
+
+    pygame.draw.ellipse(windowSurface,WHITE,[460,height/2-10,140,55])          
+
+    pygame.draw.ellipse(windowSurface,WHITE,[825,height/2-10,140,55])
+
+    pygame.draw.ellipse(windowSurface,WHITE,[1160,height/2-10,140,55])
+    pygame.display.update()
+
+def removehome(text):
+    text = basicFont.render('', True, BLACK)
+    pygame.draw.ellipse(windowSurface,BLACK,[width/2-55,height/2-10,140,55])
+    pygame.display.update()
+    
     
 def next():
     windowSurface.fill(BLACK)
@@ -64,6 +98,7 @@ def next():
     three = basicFont.render('Three', True, RED)
     four = basicFont.render('Four', True, RED)
 
+<<<<<<< Updated upstream
     #while True:
 
     for event in pygame.event.get():
@@ -85,6 +120,33 @@ def next():
                     Player4()
 
         
+=======
+    while True:
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                        
+                    #if the mouse is clicked on the
+                    # button the game is will go to players
+                    if 0 <= mouse[0] <= 300 and height/2 <= mouse[1] <= height/2+40:
+                        removenext(Players,one,two,three,four)
+                        Player1()
+                    if 350 <= mouse[0] <= 650 and height/2 <= mouse[1] <= height/2+40:
+                        removenext(Players,one,two,three,four)
+                        Player2()
+                    if 700 <= mouse[0] <= 1000 and height/2 <= mouse[1] <= height/2+40:
+                        removenext(Players,one,two,three,four)
+                        Player3()
+                    if 1050 <= mouse[0] <= 1400 and height/2 <= mouse[1] <= height/2+40:
+                        removenext(Players,one,two,three,four)
+                        Player4()
+    
+        mouse = pygame.mouse.get_pos()
+>>>>>>> Stashed changes
         #background buttons
         pygame.draw.ellipse(windowSurface,GREEN,[115,height/2-10,140,55])
 
@@ -116,10 +178,7 @@ while True:
             #if the mouse is clicked on the
             # button the game is will go to players
             if width/2-50 <= mouse[0] <= width/2+90 and height/2 <= mouse[1] <= height/2+40:
-                text = basicFont.render('', True, BLACK)
-                pygame.draw.ellipse(windowSurface,BLACK,[width/2-55,height/2-10,140,55])
-                pygame.display.update()
-                pygame.display.flip()
+                removehome(text)
                 next()
 
 
