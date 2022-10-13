@@ -96,31 +96,8 @@ def next():
     one = basicFont.render('One', True, RED)
     two = basicFont.render('Two', True, RED)
     three = basicFont.render('Three', True, RED)
-    four = basicFont.render('Four', True, RED)
+    four = basicFont.render('Four', True, RED) 
 
-<<<<<<< Updated upstream
-    #while True:
-
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-
-        if event.type == pygame.MOUSEBUTTONDOWN:
-                    
-                #if the mouse is clicked on the
-                # button the game is will go to players
-                if 0 <= mouse[0] <= 300 and height/2 <= mouse[1] <= height/2+40:
-                    Player1()
-                if 350 <= mouse[0] <= 650 and height/2 <= mouse[1] <= height/2+40:
-                    Player2()
-                if 700 <= mouse[0] <= 1000 and height/2 <= mouse[1] <= height/2+40:
-                    Player3()
-                if 1050 <= mouse[0] <= 1400 and height/2 <= mouse[1] <= height/2+40:
-                    Player4()
-
-        
-=======
     while True:
 
         for event in pygame.event.get():
@@ -146,7 +123,6 @@ def next():
                         Player4()
     
         mouse = pygame.mouse.get_pos()
->>>>>>> Stashed changes
         #background buttons
         pygame.draw.ellipse(windowSurface,GREEN,[115,height/2-10,140,55])
 
