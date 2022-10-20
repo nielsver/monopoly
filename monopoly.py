@@ -36,21 +36,42 @@ WHITE = (255,255,255)
 #Set up fonts
 basicFont = pygame.font.SysFont(None, 48)
 Largefont = pygame.font.SysFont(None, 80)
-
+smallfont = pygame.font.SysFont(None, 28)
 #background
 windowSurface.fill(BLACK)
 moneybag = pygame.image.load('./moneysign.jpg').convert()
 background = pygame.image.load('./monopoly_men.png').convert()
 Monopolymen = pygame.image.load('./Monopoly-Man-1.png').convert()
+bord = pygame.image.load('./n6IaB.jpg').convert()
 windowSurface.blit(moneybag,(800,0))
 windowSurface.blit(background,(0, 0))
 
 text = basicFont.render('Play', True, RED)
 Monopoly = Largefont.render('Monopoly',True, BLUE)
 
+def blit_text(surface, text, pos, font, color=pygame.Color('black')):
+    words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
+    space = font.size(' ')[0]  # The width of a space.
+    max_width, max_height = surface.get_size()
+    x, y = pos
+    for line in words:
+        for word in line:
+            word_surface = font.render(word, 0, color)
+            word_width, word_height = word_surface.get_size()
+            if x + word_width >= max_width:
+                x = pos[0]  # Reset the x.
+                y += word_height  # Start on new row.
+            surface.blit(word_surface, (x, y))
+            x += word_width + space
+        x = pos[0]  # Reset the x.
+        y += word_height  # Start on new row.
 
 def Player1():
     windowSurface.fill(WHITE)
+    pygame.display.update()
+    windowSurface.blit(bord,(325,0))
+    rules = "how to play:\n-d to dobble\n-b to buy\n-h to build house\n-q to quit\n\njail:\n-1 cash\n-2 card\n -3 pass"
+    blit_text(windowSurface, rules, (10, 0), smallfont)
     pygame.display.update()
     print("player 1")
     while True:
@@ -59,6 +80,9 @@ def Player1():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
+
+        
+
 
 def Player2():
     windowSurface.fill(WHITE)
