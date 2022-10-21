@@ -43,6 +43,7 @@ moneybag = pygame.image.load('./moneysign.jpg').convert()
 background = pygame.image.load('./monopoly_men.png').convert()
 Monopolymen = pygame.image.load('./Monopoly-Man-1.png').convert()
 bord = pygame.image.load('./n6IaB.jpg').convert()
+bord = pygame.transform.rotate(bord, 90)
 windowSurface.blit(moneybag,(800,0))
 windowSurface.blit(background,(0, 0))
 
