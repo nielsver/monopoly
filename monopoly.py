@@ -27,10 +27,11 @@ height = windowSurface.get_height()
 
 #Set up the colors
 BLACK = (0,0,0)
-RED = (255,0,0)
-GREEN = (34,139,34)
-BLUE = (0,96,255)
+RED = (253, 53, 0)
+GREEN = (115, 254, 66)
+BLUE = (8, 173, 250)
 WHITE = (255,255,255)
+orange = (255, 173, 1)
 
 
 #Set up fonts
@@ -72,6 +73,14 @@ def Player1():
     pygame.display.update()
     windowSurface.blit(bord,(325,0))
     rules = "how to play:\n-d to dobble\n-b to buy\n-h to build house\n-q to quit\n\njail:\n-1 cash\n-2 card\n -3 pass"
+    money1 = 1500
+    money2 = 1500
+    money3 = 1500
+    money4 = 1500
+    player1 = smallfont.render("player 1: " + str(money1),True, RED)
+    player2 = smallfont.render("player 2: " + str(money2),True, BLUE)
+    player3 = smallfont.render("player 3: " + str(money3),True, GREEN)
+    player4 = smallfont.render("player 4: " + str(money4),True, orange)
     blit_text(windowSurface, rules, (10, 0), smallfont)
     pygame.display.update()
     print("player 1")
@@ -82,7 +91,16 @@ def Player1():
                 pygame.quit()
                 sys.exit()
 
-        
+        #update Players money
+        windowSurface.blit(player1,(1150,40))
+        pygame.draw.line(windowSurface, RED,(1150,60),(1350,60),1)
+        windowSurface.blit(player2,(1150,80))
+        pygame.draw.line(windowSurface, BLUE,(1150,100),(1350,100),1)
+        windowSurface.blit(player3,(1150,120))
+        pygame.draw.line(windowSurface, GREEN,(1150,140),(1350,140),1)
+        windowSurface.blit(player4,(1150,160))
+        pygame.draw.line(windowSurface, orange,(1150,180),(1350,180),1)
+        pygame.display.update()
 
 
 def Player2():
