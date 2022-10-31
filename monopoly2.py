@@ -7,6 +7,7 @@ from pickle import TRUE
 from re import T
 from sre_parse import WHITESPACE
 from string import whitespace
+from telnetlib import STATUS
 from time import monotonic
 from tokenize import Whitespace
 from tracemalloc import start
@@ -86,7 +87,110 @@ def blit_text(surface, text, pos, font, color=pygame.Color('black')):
             x += word_width + space
         x = pos[0]  # Reset the x.
         y += word_height  # Start on new row.
+def positie1(gedobbeltnummer):
+    i = 0
+    if(i == 0):
+        x = gedobbeltnummer
+        i = 1
+    else:
+        x = gedobbeltnummer + x
+        if (x >= 40):
+            x - 40
+    return x
+def positie2(gedobbeltnummer):
+    i = 0
+    if(i == 0):
+        x = gedobbeltnummer
+        i = 1
+    else:
+        x = gedobbeltnummer + x
+        if (x >= 40):
+            x - 40
+    return x
+def positiecheck(positie, type):
+    if(type == 1 or type == 2):
+        if positie == 0:
+            print("0")
+        elif positie == 1:
+            print("1")
+        elif positie == 2:
+            print("2")
+        elif positie == 3:
+            print("3")
+        elif positie == 4:
+            print("4")
+        elif positie == 5:
+            print("5")
+        elif positie == 6:
+            print("6")
+        elif positie == 7:
+            print("7")
+        elif positie == 8:
+            print("8")
+        elif positie == 9:
+            print("9")
+        elif positie == 10:
+            print("10")
+        elif positie == 11:
+            print("11")
+        elif positie == 12:
+            print("12")
+        elif positie == 13:
+            print("13")
+        elif positie == 14:
+            print("14")
+        elif positie == 15:
+            print("15")
+        elif positie == 16:
+            print("16")
+        elif positie == 17:
+            print("17")
+        elif positie == 18:
+            print("18")
+        elif positie == 19:
+            print("19")
+        elif positie == 20:
+            print("20")
+        elif positie == 21:
+            print("21")
+        elif positie == 22:
+            print("22")
+        elif positie == 23:
+            print("23")
+        elif positie == 24:
+            print("24")
+        elif positie == 25:
+            print("25")
+        elif positie == 26:
+            print("26")
+        elif positie == 27:
+            print("27")
+        elif positie == 28:
+            print("28")
+        elif positie == 29:
+            print("29")
+        elif positie == 30:
+            print("30")
+        elif positie == 31:
+            print("31")
+        elif positie == 32:
+            print("32")
+        elif positie == 33:
+            print("30")
+        elif positie == 34:
+            print("34")
+        elif positie == 35:
+            print("35")
+        elif positie == 36:
+            print("36")
+        elif positie == 37:
+            print("37")
+        elif positie == 38:
+            print("38")
+        elif positie == 39:
+            print("39")
 
+    
 def dobbelen():
     int1 = random.randint(1,6)
     int2 = random.randint(1,6)
@@ -94,31 +198,31 @@ def dobbelen():
 
     #dobbelsteen 1 op het scherm tonen
     if int1 == 1:
-        windowSurface.blit(dobbelsteen1,(width-300, height-150))
+        windowSurface.blit(dobbelsteen1,(250, 400))
     if int1 ==2:
-        windowSurface.blit(dobbelsteen2,(width-300, height-150))
+        windowSurface.blit(dobbelsteen2,(250, 400))
     if int1 ==3:
-        windowSurface.blit(dobbelsteen3,(width-300, height-150))
+        windowSurface.blit(dobbelsteen3,(250, 400))
     if int1 ==4:
-        windowSurface.blit(dobbelsteen4,(width-300, height-150))
+        windowSurface.blit(dobbelsteen4,(250, 400))
     if int1 ==5:
-        windowSurface.blit(dobbelsteen5,(width-300, height-150))
+        windowSurface.blit(dobbelsteen5,(250, 400))
     if int1 ==6:
-        windowSurface.blit(dobbelsteen6,(width-300, height-150))
+        windowSurface.blit(dobbelsteen6,(250, 400))
     
     #dobbelsteen 2 tonen op scherm
     if int2 == 1:
-        windowSurface.blit(dobbelsteen1,(width-50, height-150))
+        windowSurface.blit(dobbelsteen1,(450, 400))
     if int2 ==2:
-        windowSurface.blit(dobbelsteen2,(width-50, height-150))
+        windowSurface.blit(dobbelsteen2,(450, 400))
     if int2 ==3:
-        windowSurface.blit(dobbelsteen3,(width-50, height-150))
+        windowSurface.blit(dobbelsteen3,(450, 400))
     if int2 ==4:
-        windowSurface.blit(dobbelsteen4,(width-50, height-150))
+        windowSurface.blit(dobbelsteen4,(450, 400))
     if int2 ==5:
-        windowSurface.blit(dobbelsteen5,(width-50, height-150))
+        windowSurface.blit(dobbelsteen5,(450, 400))
     if int2 ==6:
-        windowSurface.blit(dobbelsteen6,(width-50, height-150))
+        windowSurface.blit(dobbelsteen6,(450, 400))
     return worp
 
 def Player2():
@@ -131,23 +235,97 @@ def Player2():
     money2 = 1500
     player1 = smallfont.render("player 1: " + str(money1),True, RED)
     player2 = smallfont.render("player 2: " + str(money2),True, BLUE)
-
+    dobbel = Button(button, pos=(width/2, 450), 
+                        text_input="dobbel", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
     # rules text
     pygame.display.update()
     
     while True:
-        pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200, 400, 400,400))
-        
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
+        mouse = pygame.mouse.get_pos()
+        aandebeurt = 1
+        algedobbelt = 0
+        #player one
         #update Players money
         windowSurface.blit(player1,(1150,40))
         pygame.draw.line(windowSurface, RED,(1150,60),(1350,60),1)
         windowSurface.blit(player2,(1150,80))
         pygame.draw.line(windowSurface, BLUE,(1150,100),(1350,100),1)
         pygame.display.update()
+        while aandebeurt == 1:
+            mouse = pygame.mouse.get_pos()
+            pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200, 400, 400,400))
+            if(algedobbelt == 0):
+                dobbel = Button(button, pos=(width/2 + 400, 600), 
+                            text_input="dobbel", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                for btn in [dobbel]:
+                    btn.changeColor(mouse)
+                    btn.update(windowSurface)
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        if dobbel.checkForInput(mouse):
+                            worp = dobbelen()
+                            positiespeler1 = positie1(worp)
+                            kankopen = positiecheck(positiespeler1,1)
+                            algedobbelt = 1
+                    if event.type == pygame.QUIT:
+                            pygame.quit()
+                            sys.exit()
+            if(algedobbelt == 1):
+                volgende = Button(button, pos=(width/2 + 400, 600), 
+                            text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                for btn in [volgende]:
+                    btn.changeColor(mouse)
+                    btn.update(windowSurface)
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                            if volgende.checkForInput(mouse):
+                                aandebeurt = 2
+                                algedobbelt = 0
+                    if event.type == pygame.QUIT:
+                            pygame.quit()
+                            sys.exit()
+            pygame.display.update()
+        #player two
+        #update Players money
+        windowSurface.blit(player1,(1150,40))
+        pygame.draw.line(windowSurface, RED,(1150,60),(1350,60),1)
+        windowSurface.blit(player2,(1150,80))
+        pygame.draw.line(windowSurface, BLUE,(1150,100),(1350,100),1)
+        pygame.display.update()
+        while aandebeurt == 2:
+            mouse = pygame.mouse.get_pos()
+            pygame.draw.rect(windowSurface, BLUE, pygame.Rect(width/2+200, 400, 400,400))
+            if(algedobbelt == 0):
+                dobbel = Button(button, pos=(width/2 + 400, 600), 
+                            text_input="dobbel", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                for btn in [dobbel]:
+                    btn.changeColor(mouse)
+                    btn.update(windowSurface)
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        if dobbel.checkForInput(mouse):
+                            worp = dobbelen()
+                            positiespeler2 = positie2(worp)
+                            kankopen = positiecheck(positiespeler2,1)
+                            algedobbelt = 1
+                    if event.type == pygame.QUIT:
+                            pygame.quit()
+                            sys.exit()
+            if(algedobbelt == 1):
+                volgende = Button(button, pos=(width/2 + 400, 600), 
+                            text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                for btn in [volgende]:
+                    btn.changeColor(mouse)
+                    btn.update(windowSurface)
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                            if volgende.checkForInput(mouse):
+                                aandebeurt = 1
+                                algedobbelt = 0
+                    if event.type == pygame.QUIT:
+                            pygame.quit()
+                            sys.exit()
+            pygame.display.update()
  
 def Player3():
     windowSurface.fill(WHITE)
