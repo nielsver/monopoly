@@ -1,6 +1,7 @@
-from ast import Or
+from ast import Constant, Or
 from cgitb import grey
 from email.mime import image
+from glob import glob
 from hashlib import blake2b
 from os import remove
 from pickle import TRUE
@@ -35,7 +36,14 @@ BLUE = (8, 173, 250)
 WHITE = (255,255,255)
 ORANGE = (255, 173, 1)
 
-
+#init global variables
+i = 0 
+z = 0
+speler1positie = 0
+speler2positie = 0
+vakjes = [0] * 40
+money1 = 1500
+money2 = 1500
 #Set up fonts
 basicFont = pygame.font.SysFont(None, 48)
 Largefont = pygame.font.SysFont(None, 80)
@@ -88,30 +96,54 @@ def blit_text(surface, text, pos, font, color=pygame.Color('black')):
         x = pos[0]  # Reset the x.
         y += word_height  # Start on new row.
 def positie1(gedobbeltnummer):
-    i = 0
+    global i
+    global speler1positie
     if(i == 0):
-        x = gedobbeltnummer
+        speler1positie = gedobbeltnummer
         i = 1
     else:
-        x = gedobbeltnummer + x
-        if (x >= 40):
-            x - 40
-    return x
+        speler1positie = gedobbeltnummer + speler1positie
+        if (speler1positie >= 40):
+            speler1positie = speler1positie - 40
+    return speler1positie
 def positie2(gedobbeltnummer):
-    i = 0
-    if(i == 0):
-        x = gedobbeltnummer
-        i = 1
+    global z
+    global speler2positie
+    if(z == 0):
+        speler2positie = gedobbeltnummer
+        z = 1
     else:
-        x = gedobbeltnummer + x
-        if (x >= 40):
-            x - 40
-    return x
+        speler2positie = gedobbeltnummer + speler2positie
+        if (speler2positie >= 40):
+            speler2positie = speler2positie - 40
+    return speler2positie
 def positiecheck(positie, type):
+    #type = 1 speler1
+    #type = 2 speler2
+    #type = 3 speler1 koopt
+    #type = 4 speler2 koopt
+    #vakjes = 0 van niemand
+    #vakjes = 1 van speler 1
+    #vakjes = 2 van speler 2
+    global vakjes
+    global money1
+    global money2
     if(type == 1 or type == 2):
         if positie == 0:
             print("0")
+            #geld ontvangen 
+            return 2
         elif positie == 1:
+            if(vakjes[1] == 0):
+                return 1
+            elif(vakjes[1] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[1] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
             print("1")
         elif positie == 2:
             print("2")
@@ -189,7 +221,10 @@ def positiecheck(positie, type):
             print("38")
         elif positie == 39:
             print("39")
-
+    elif(type == 3):
+        vakjes[positie] = 1
+    elif(type == 4):
+        vakjes[positie] = 2
     
 def dobbelen():
     int1 = random.randint(1,6)
@@ -231,8 +266,8 @@ def Player2():
     #image bord
     windowSurface.blit(bord,(0,0))
     #init text
-    money1 = 1500
-    money2 = 1500
+    global money1 
+    global money2 
     player1 = smallfont.render("player 1: " + str(money1),True, RED)
     player2 = smallfont.render("player 2: " + str(money2),True, BLUE)
     dobbel = Button(button, pos=(width/2, 450), 
@@ -265,6 +300,7 @@ def Player2():
                         if dobbel.checkForInput(mouse):
                             worp = dobbelen()
                             positiespeler1 = positie1(worp)
+                            #kankopen 1 kan het worden gekocht anders 2
                             kankopen = positiecheck(positiespeler1,1)
                             algedobbelt = 1
                     if event.type == pygame.QUIT:
@@ -306,6 +342,7 @@ def Player2():
                         if dobbel.checkForInput(mouse):
                             worp = dobbelen()
                             positiespeler2 = positie2(worp)
+                            #kankopen 1 kan worden gekocht anders 2
                             kankopen = positiecheck(positiespeler2,1)
                             algedobbelt = 1
                     if event.type == pygame.QUIT:
