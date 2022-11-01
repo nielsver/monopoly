@@ -699,7 +699,7 @@ def next():
                 if player3button.checkForInput(mouse):
                     Player3()
                 if player4button.checkForInput(mouse):
-                    Player4
+                    Player4()
 
         pygame.display.update()
 
