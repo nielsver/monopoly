@@ -19,6 +19,8 @@ import pygame, sys
 from pygame.locals import *
 import random
 
+from player import player
+
 #Set up pygame
 pygame.init()
 screen = (1400, 800)
@@ -42,8 +44,8 @@ z = 0
 speler1positie = 0
 speler2positie = 0
 vakjes = [0] * 40
-money1 = 1500
-money2 = 1500
+player1 = player("./monopoly-hat-01.jpg",(600,600),1500,0,"player1")
+player2 = player("./dog.jpg",(600,600),1500,0,"player2")
 #Set up fonts
 basicFont = pygame.font.SysFont(None, 48)
 Largefont = pygame.font.SysFont(None, 80)
@@ -126,11 +128,10 @@ def positiecheck(positie, type):
     #vakjes = 1 van speler 1
     #vakjes = 2 van speler 2
     global vakjes
-    global money1
-    global money2
+    global player1
+    global player2
     if(type == 1 or type == 2):
         if positie == 0:
-            print("0")
             #geld ontvangen 
             return 2
         elif positie == 1:
@@ -144,83 +145,336 @@ def positiecheck(positie, type):
                 if(type == 1):
                     #betalen
                     return 2
-            print("1")
         elif positie == 2:
-            print("2")
+            #algemeen fonds
+            return 2
         elif positie == 3:
-            print("3")
+            if(vakjes[3] == 0):
+                return 1
+            elif(vakjes[3] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[3] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 4:
-            print("4")
+            #taxen betalen
+            return 2
         elif positie == 5:
-            print("5")
+            if(vakjes[5] == 0):
+                return 1
+            elif(vakjes[5] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[5] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 6:
-            print("6")
+            if(vakjes[6] == 0):
+                return 1
+            elif(vakjes[6] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[6] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 7:
-            print("7")
+            #kans
+            return 2
         elif positie == 8:
-            print("8")
+            if(vakjes[8] == 0):
+                return 1
+            elif(vakjes[8] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[8] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 9:
-            print("9")
+            if(vakjes[9] == 0):
+                return 1
+            elif(vakjes[9] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[9] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 10:
-            print("10")
+            #op bezoek
+            return 2
         elif positie == 11:
-            print("11")
+            if(vakjes[11] == 0):
+                return 1
+            elif(vakjes[11] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[11] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 12:
-            print("12")
+            if(vakjes[12] == 0):
+                return 1
+            elif(vakjes[12] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[12] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 13:
-            print("13")
+            if(vakjes[13] == 0):
+                return 1
+            elif(vakjes[13] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[13] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 14:
-            print("14")
+            if(vakjes[14] == 0):
+                return 1
+            elif(vakjes[14] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[14] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 15:
-            print("15")
+            if(vakjes[15] == 0):
+                return 1
+            elif(vakjes[15] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[15] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 16:
-            print("16")
+            if(vakjes[16] == 0):
+                return 1
+            elif(vakjes[16] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[16] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 17:
-            print("17")
+            #algemeen fonds
+            return 2
         elif positie == 18:
-            print("18")
+            if(vakjes[18] == 0):
+                return 1
+            elif(vakjes[18] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[18] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 19:
-            print("19")
+            if(vakjes[19] == 0):
+                return 1
+            elif(vakjes[19] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[19] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 20:
-            print("20")
+            #vrij parkeren
+            return 2
         elif positie == 21:
-            print("21")
+            if(vakjes[21] == 0):
+                return 1
+            elif(vakjes[21] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[21] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 22:
-            print("22")
+            #kans
+            return 2
         elif positie == 23:
-            print("23")
+            if(vakjes[23] == 0):
+                return 1
+            elif(vakjes[23] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[23] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 24:
-            print("24")
+            if(vakjes[24] == 0):
+                return 1
+            elif(vakjes[24] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[24] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 25:
-            print("25")
+            if(vakjes[25] == 0):
+                return 1
+            elif(vakjes[25] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[25] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 26:
-            print("26")
+            if(vakjes[26] == 0):
+                return 1
+            elif(vakjes[26] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[26] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 27:
-            print("27")
+            if(vakjes[27] == 0):
+                return 1
+            elif(vakjes[27] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[27] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 28:
-            print("28")
+            if(vakjes[28] == 0):
+                return 1
+            elif(vakjes[28] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[28] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 29:
-            print("29")
+            if(vakjes[29] == 0):
+                return 1
+            elif(vakjes[29] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[29] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 30:
-            print("30")
+            #naar de gevangenis
+            return 2
         elif positie == 31:
-            print("31")
+            if(vakjes[31] == 0):
+                return 1
+            elif(vakjes[31] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[31] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 32:
-            print("32")
+            if(vakjes[32] == 0):
+                return 1
+            elif(vakjes[32] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[32] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 33:
-            print("30")
+            #algemeen fonds
+            return 2
         elif positie == 34:
-            print("34")
+            if(vakjes[34] == 0):
+                return 1
+            elif(vakjes[34] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[34] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 35:
-            print("35")
+            if(vakjes[35] == 0):
+                return 1
+            elif(vakjes[35] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[35] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 36:
-            print("36")
+            #kans
+            return 2
         elif positie == 37:
-            print("37")
+            if(vakjes[37] == 0):
+                return 1
+            elif(vakjes[37] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[37] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
         elif positie == 38:
-            print("38")
+            #supertax
+            return 2
         elif positie == 39:
-            print("39")
+            if(vakjes[39] == 0):
+                return 1
+            elif(vakjes[39] == 1):
+                if(type == 2):
+                    #betalen
+                    return 2
+            elif(vakjes[39] == 2):
+                if(type == 1):
+                    #betalen
+                    return 2
     elif(type == 3):
         vakjes[positie] = 1
     elif(type == 4):
@@ -266,10 +520,10 @@ def Player2():
     #image bord
     windowSurface.blit(bord,(0,0))
     #init text
-    global money1 
-    global money2 
-    player1 = smallfont.render("player 1: " + str(money1),True, RED)
-    player2 = smallfont.render("player 2: " + str(money2),True, BLUE)
+    global player1
+    global player2
+    geldplayer1 = smallfont.render("player 1: " + str(player1.money),True, RED)
+    geldplayer2 = smallfont.render("player 2: " + str(player2.money),True, BLUE)
     dobbel = Button(button, pos=(width/2, 450), 
                         text_input="dobbel", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
     # rules text
@@ -281,9 +535,9 @@ def Player2():
         algedobbelt = 0
         #player one
         #update Players money
-        windowSurface.blit(player1,(1150,40))
+        windowSurface.blit(geldplayer1,(1150,40))
         pygame.draw.line(windowSurface, RED,(1150,60),(1350,60),1)
-        windowSurface.blit(player2,(1150,80))
+        windowSurface.blit(geldplayer2,(1150,80))
         pygame.draw.line(windowSurface, BLUE,(1150,100),(1350,100),1)
         pygame.display.update()
         while aandebeurt == 1:
@@ -307,25 +561,45 @@ def Player2():
                             pygame.quit()
                             sys.exit()
             if(algedobbelt == 1):
-                volgende = Button(button, pos=(width/2 + 400, 600), 
-                            text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                for btn in [volgende]:
-                    btn.changeColor(mouse)
-                    btn.update(windowSurface)
-                for event in pygame.event.get():
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                            if volgende.checkForInput(mouse):
-                                aandebeurt = 2
-                                algedobbelt = 0
-                    if event.type == pygame.QUIT:
-                            pygame.quit()
-                            sys.exit()
+                if(kankopen == 1):
+                    kopen = Button(button, pos=(width/2 + 400, 700), 
+                                text_input="kopen", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                    volgende = Button(button, pos=(width/2 + 400, 600), 
+                                text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                    for btn in [volgende,kopen]:
+                        btn.changeColor(mouse)
+                        btn.update(windowSurface)
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                                if volgende.checkForInput(mouse):
+                                    aandebeurt = 2
+                                    algedobbelt = 0
+                                if kopen.checkForInput(mouse):
+                                    positiecheck(positiespeler1,3)
+                                    kankopen = 2
+                        if event.type == pygame.QUIT:
+                                pygame.quit()
+                                sys.exit()
+                else:
+                    volgende = Button(button, pos=(width/2 + 400, 600), 
+                                text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                    for btn in [volgende]:
+                        btn.changeColor(mouse)
+                        btn.update(windowSurface)
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                                if volgende.checkForInput(mouse):
+                                    aandebeurt = 2
+                                    algedobbelt = 0
+                        if event.type == pygame.QUIT:
+                                pygame.quit()
+                                sys.exit()
             pygame.display.update()
         #player two
         #update Players money
-        windowSurface.blit(player1,(1150,40))
+        windowSurface.blit(geldplayer1,(1150,40))
         pygame.draw.line(windowSurface, RED,(1150,60),(1350,60),1)
-        windowSurface.blit(player2,(1150,80))
+        windowSurface.blit(geldplayer2,(1150,80))
         pygame.draw.line(windowSurface, BLUE,(1150,100),(1350,100),1)
         pygame.display.update()
         while aandebeurt == 2:
@@ -349,19 +623,39 @@ def Player2():
                             pygame.quit()
                             sys.exit()
             if(algedobbelt == 1):
-                volgende = Button(button, pos=(width/2 + 400, 600), 
-                            text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                for btn in [volgende]:
-                    btn.changeColor(mouse)
-                    btn.update(windowSurface)
-                for event in pygame.event.get():
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                            if volgende.checkForInput(mouse):
-                                aandebeurt = 1
-                                algedobbelt = 0
-                    if event.type == pygame.QUIT:
-                            pygame.quit()
-                            sys.exit()
+                if(kankopen == 1):
+                    kopen = Button(button, pos=(width/2 + 400, 700), 
+                                text_input="kopen", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                    volgende = Button(button, pos=(width/2 + 400, 600), 
+                                text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                    for btn in [volgende,kopen]:
+                        btn.changeColor(mouse)
+                        btn.update(windowSurface)
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                                if volgende.checkForInput(mouse):
+                                    aandebeurt = 1
+                                    algedobbelt = 0
+                                if kopen.checkForInput(mouse):
+                                    positiecheck(positiespeler2,4)
+                                    kankopen = 2
+                        if event.type == pygame.QUIT:
+                                pygame.quit()
+                                sys.exit()
+                else:
+                    volgende = Button(button, pos=(width/2 + 400, 600), 
+                                text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                    for btn in [volgende]:
+                        btn.changeColor(mouse)
+                        btn.update(windowSurface)
+                    for event in pygame.event.get():
+                        if event.type == pygame.MOUSEBUTTONDOWN:
+                                if volgende.checkForInput(mouse):
+                                    aandebeurt = 1
+                                    algedobbelt = 0
+                        if event.type == pygame.QUIT:
+                                pygame.quit()
+                                sys.exit()
             pygame.display.update()
  
 def Player3():
