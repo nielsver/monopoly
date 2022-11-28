@@ -99,6 +99,15 @@ def blit_text(surface, text, pos, font, color=pygame.Color('black')):
             x += word_width + space
         x = pos[0]  # Reset the x.
         y += word_height  # Start on new row.
+def naardegevangenis(speler):
+    #indegevangenis
+    global speler1positie
+    global speler2positie
+    if(speler == 1):
+        speler1positie = 10
+    elif(speler == 2):
+        speler2positie = 10
+    print("in de gevangenis")
 def algemeenfonds():
     #algemeenfonds
     print("algemeenfonds")
@@ -653,6 +662,7 @@ def positiecheck(positie, type, worp):
                     return 2
         elif positie == 30:
             #naar de gevangenis
+            naardegevangenis(type)
             return 2
         elif positie == 31:
             if(vakjes[31] == 0):
@@ -922,7 +932,9 @@ def dobbelen():
     double = 0
     worp = int1 + int2
     if(int1 == int2):
-        double = 1
+        double = double + 1
+    else:
+        double = 0
 
     #dobbelsteen 1 op het scherm tonen
     if int1 == 1:
@@ -961,6 +973,7 @@ def Player2():
     #init text
     global player1
     global player2
+    global double
     geldplayer1 = smallfont.render("player 1: " + str(player1.money),True, RED)
     geldplayer2 = smallfont.render("player 2: " + str(player2.money),True, BLUE)
     dobbel = Button(button, pos=(width/2, 450), 
@@ -979,67 +992,81 @@ def Player2():
         windowSurface.blit(geldplayer2,(1150,80))
         pygame.draw.line(windowSurface, BLUE,(1150,100),(1350,100),1)
         pygame.display.update()
-        while aandebeurt == 1:
-            mouse = pygame.mouse.get_pos()
-            pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200, 400, 400,400))
-            if(algedobbelt == 0):
-                dobbel = Button(button, pos=(width/2 + 400, 600), 
-                            text_input="dobbel", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                for btn in [dobbel]:
-                    btn.changeColor(mouse)
-                    btn.update(windowSurface)
-                for event in pygame.event.get():
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if dobbel.checkForInput(mouse):
-                            worp = dobbelen()
-                            positiespeler1 = positie1(worp)
-                            #kankopen 1 kan het worden gekocht anders 2
-                            kankopen = positiecheck(positiespeler1,1,worp)
-                            algedobbelt = 1
-                    if event.type == pygame.QUIT:
-                            pygame.quit()
-                            sys.exit()
-            if(algedobbelt == 1):
-                if(kankopen == 1):
-                    kopen = Button(button, pos=(width/2 + 400, 700), 
-                                text_input="kopen", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                    volgende = Button(button, pos=(width/2 + 400, 600), 
-                                text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                    for btn in [volgende,kopen]:
+        if(player1.money >= 0): 
+            while aandebeurt == 1:
+                mouse = pygame.mouse.get_pos()
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200, 400, 400,400))
+                if(algedobbelt == 0):
+                    dobbel = Button(button, pos=(width/2 + 400, 600), 
+                                text_input="dobbel", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                    for btn in [dobbel]:
                         btn.changeColor(mouse)
                         btn.update(windowSurface)
                     for event in pygame.event.get():
                         if event.type == pygame.MOUSEBUTTONDOWN:
-                                if volgende.checkForInput(mouse):
-                                    if(double == 1):
-                                        aandebeurt = 1
-                                    else:
-                                        aandebeurt = 2
-                                        algedobbelt = 0
-                                if kopen.checkForInput(mouse):
-                                    positiecheck(positiespeler1,3,0)
-                                    kankopen = 2
-                        if event.type == pygame.QUIT:
-                                pygame.quit()
-                                sys.exit()
-                else:
-                    volgende = Button(button, pos=(width/2 + 400, 600), 
-                                text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                    for btn in [volgende]:
-                        btn.changeColor(mouse)
-                        btn.update(windowSurface)
-                    for event in pygame.event.get():
-                        if event.type == pygame.MOUSEBUTTONDOWN:
-                            if volgende.checkForInput(mouse):
-                                if(double == 1):
-                                    aandebeurt = 1
-                                else:
+                            if dobbel.checkForInput(mouse):
+                                worp = dobbelen()
+                                if(double == 3):
+                                    naardegevangenis(1)
+                                    algedobbelt = 1
                                     aandebeurt = 2
-                                    algedobbelt = 0
+                                else:
+                                    positiespeler1 = positie1(worp)
+                                    #kankopen 1 kan het worden gekocht anders 2
+                                    kankopen = positiecheck(positiespeler1,1,worp)
+                                    algedobbelt = 1
                         if event.type == pygame.QUIT:
                                 pygame.quit()
                                 sys.exit()
-            pygame.display.update()
+                if(aandebeurt == 1):
+                    if(algedobbelt == 1):
+                        if(kankopen == 1):
+                            kopen = Button(button, pos=(width/2 + 400, 700), 
+                                        text_input="kopen", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                            volgende = Button(button, pos=(width/2 + 400, 600), 
+                                        text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                            for btn in [volgende,kopen]:
+                                btn.changeColor(mouse)
+                                btn.update(windowSurface)
+                            for event in pygame.event.get():
+                                if event.type == pygame.MOUSEBUTTONDOWN:
+                                        if volgende.checkForInput(mouse):
+                                            if(double == 1 or double == 2):
+                                                aandebeurt = 1
+                                                algedobbelt = 0
+                                                kankopen = 0
+                                            else:
+                                                aandebeurt = 2
+                                                algedobbelt = 0
+                                                kankopen = 0
+                                        if kopen.checkForInput(mouse):
+                                            positiecheck(positiespeler1,3,0)
+                                            kankopen = 2
+                                if event.type == pygame.QUIT:
+                                        pygame.quit()
+                                        sys.exit()
+                        else:
+                            volgende = Button(button, pos=(width/2 + 400, 600), 
+                                        text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                            for btn in [volgende]:
+                                btn.changeColor(mouse)
+                                btn.update(windowSurface)
+                            for event in pygame.event.get():
+                                if event.type == pygame.MOUSEBUTTONDOWN:
+                                    if volgende.checkForInput(mouse):
+                                        if(double == 1 or double == 2):
+                                            aandebeurt = 1
+                                            algedobbelt = 0
+                                        else:
+                                            aandebeurt = 2
+                                            algedobbelt = 0
+                                if event.type == pygame.QUIT:
+                                        pygame.quit()
+                                        sys.exit()
+                pygame.display.update()
+        else:
+            print("player 2 wins")
+            sys.exit()
         #player two
         #update Players money
         windowSurface.blit(geldplayer1,(1150,40))
@@ -1047,62 +1074,80 @@ def Player2():
         windowSurface.blit(geldplayer2,(1150,80))
         pygame.draw.line(windowSurface, BLUE,(1150,100),(1350,100),1)
         pygame.display.update()
-        while aandebeurt == 2:
-            mouse = pygame.mouse.get_pos()
-            pygame.draw.rect(windowSurface, BLUE, pygame.Rect(width/2+200, 400, 400,400))
-            if(algedobbelt == 0):
-                dobbel = Button(button, pos=(width/2 + 400, 600), 
-                            text_input="dobbel", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                for btn in [dobbel]:
-                    btn.changeColor(mouse)
-                    btn.update(windowSurface)
-                for event in pygame.event.get():
-                    if event.type == pygame.MOUSEBUTTONDOWN:
-                        if dobbel.checkForInput(mouse):
-                            worp = dobbelen()
-                            positiespeler2 = positie2(worp)
-                            #kankopen 1 kan worden gekocht anders 2
-                            kankopen = positiecheck(positiespeler2,1,worp)
-                            algedobbelt = 1
-                    if event.type == pygame.QUIT:
-                            pygame.quit()
-                            sys.exit()
-            if(algedobbelt == 1):
-                if(kankopen == 1):
-                    kopen = Button(button, pos=(width/2 + 400, 700), 
-                                text_input="kopen", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                    volgende = Button(button, pos=(width/2 + 400, 600), 
-                                text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                    for btn in [volgende,kopen]:
+        if(player2.money >= 0):
+            while aandebeurt == 2:
+                mouse = pygame.mouse.get_pos()
+                pygame.draw.rect(windowSurface, BLUE, pygame.Rect(width/2+200, 400, 400,400))
+                if(algedobbelt == 0):
+                    dobbel = Button(button, pos=(width/2 + 400, 600), 
+                                text_input="dobbel", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                    for btn in [dobbel]:
                         btn.changeColor(mouse)
                         btn.update(windowSurface)
                     for event in pygame.event.get():
                         if event.type == pygame.MOUSEBUTTONDOWN:
-                                if volgende.checkForInput(mouse):
+                            if dobbel.checkForInput(mouse):
+                                worp = dobbelen()
+                                if(double == 3):
+                                    naardegevangenis(2)
+                                    algedobbelt = 1
                                     aandebeurt = 1
-                                    algedobbelt = 0
-                                if kopen.checkForInput(mouse):
-                                    positiecheck(positiespeler2,4,0)
-                                    kankopen = 2
+                                else:
+                                    positiespeler2 = positie2(worp)
+                                    #kankopen 1 kan worden gekocht anders 2
+                                    kankopen = positiecheck(positiespeler2,1,worp)
+                                    algedobbelt = 1
                         if event.type == pygame.QUIT:
                                 pygame.quit()
                                 sys.exit()
-                else:
-                    volgende = Button(button, pos=(width/2 + 400, 600), 
-                                text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
-                    for btn in [volgende]:
-                        btn.changeColor(mouse)
-                        btn.update(windowSurface)
-                    for event in pygame.event.get():
-                        if event.type == pygame.MOUSEBUTTONDOWN:
-                                if volgende.checkForInput(mouse):
-                                    aandebeurt = 1
-                                    algedobbelt = 0
-                        if event.type == pygame.QUIT:
-                                pygame.quit()
-                                sys.exit()
-            pygame.display.update()
- 
+                if(aandebeurt == 2):
+                    if(algedobbelt == 1):
+                        if(kankopen == 1):
+                            kopen = Button(button, pos=(width/2 + 400, 700), 
+                                        text_input="kopen", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                            volgende = Button(button, pos=(width/2 + 400, 600), 
+                                        text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                            for btn in [volgende,kopen]:
+                                btn.changeColor(mouse)
+                                btn.update(windowSurface)
+                            for event in pygame.event.get():
+                                if event.type == pygame.MOUSEBUTTONDOWN:
+                                        if volgende.checkForInput(mouse):
+                                            if(double == 1 or double == 2):
+                                                aandebeurt = 2
+                                                algedobbelt = 0
+                                                kankopen = 0
+                                            else:
+                                                algedobbelt = 0
+                                                aandebeurt = 1
+                                        if kopen.checkForInput(mouse):
+                                            positiecheck(positiespeler2,4,0)
+                                            kankopen = 2
+                                if event.type == pygame.QUIT:
+                                        pygame.quit()
+                                        sys.exit()
+                        else:
+                            volgende = Button(button, pos=(width/2 + 400, 600), 
+                                        text_input="next", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
+                            for btn in [volgende]:
+                                btn.changeColor(mouse)
+                                btn.update(windowSurface)
+                            for event in pygame.event.get():
+                                if event.type == pygame.MOUSEBUTTONDOWN:
+                                        if volgende.checkForInput(mouse):
+                                            if(double == 1 or double == 2):
+                                                aandebeurt = 2
+                                                algedobbelt = 0
+                                            else:
+                                                algedobbelt = 0
+                                                aandebeurt = 1
+                                if event.type == pygame.QUIT:
+                                        pygame.quit()
+                                        sys.exit()
+                pygame.display.update()
+            else:
+                print("player 1 wint")
+                sys.exit()
 def Player3():
     windowSurface.fill(WHITE)
     pygame.display.update()
