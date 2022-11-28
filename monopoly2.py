@@ -109,10 +109,10 @@ def vrijparkeren(player):
     global player1
     global player2
     if(player == 1):
-        player1.money() + pot
+        player1.money = player1.money() + pot
         pot = 0
     if(player == 2):
-        player2.money() + pot
+        player2.money = player2.money() + pot
     print("vrijparkeren")
 def positie1(gedobbeltnummer):
     global i
@@ -152,9 +152,9 @@ def positiecheck(positie, type, worp):
         if positie == 0:
             #geld ontvangen 
             if(type == 1):
-                player1.money() + 200
+                player1.money = player1.money() + 200
             if(type == 2):
-                player2.money() + 200
+                player2.money = player2.money() + 200
             return 2
         elif positie == 1:
             if(vakjes[1] == 0):
@@ -162,14 +162,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[1] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 10
-                    player1.money() + 10
+                    player2.money = player2.money() - 10
+                    player1.money = player1.money() + 10
                     return 2
             elif(vakjes[1] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 10
-                    player2.money() + 10
+                    player1.money = player1.money() - 10
+                    player2.money = player2.money() + 10
                     return 2
         elif positie == 2:
             #algemeen fonds
@@ -181,23 +181,23 @@ def positiecheck(positie, type, worp):
             elif(vakjes[3] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 20
-                    player1.money() + 20
+                    player2.money = player2.money() - 20
+                    player1.money = player1.money() + 20
                     return 2
             elif(vakjes[3] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 20
-                    player2.money() + 20
+                    player1.money = player1.money() - 20
+                    player2.money = player2.money() + 20
                     return 2
         elif positie == 4:
             #taxen betalen
             if(type == 1):
-                player1.money() - 200
-                pot + 200
+                player1.money = player1.money() - 200
+                pot = pot + 200
             if(type == 2):
-                player2.money() - 200
-                pot + 200
+                player2.money = player2.money() - 200
+                pot = pot + 200
             return 2
         elif positie == 5:
             # aantal vakjes bezit checken
@@ -214,17 +214,17 @@ def positiecheck(positie, type, worp):
                     if(vakjes[35] == 1):
                         q = q + 1
                     if(q == 0):
-                        player2.money() - 25
-                        player1.money() + 25
+                        player2.money = player2.money() - 25
+                        player1.money = player1.money() + 25
                     if(q == 1):
-                        player2.money() - 50
-                        player1.money() + 50
+                        player2.money = player2.money() - 50
+                        player1.money = player1.money() + 50
                     if(q == 2):
-                        player2.money() - 100
-                        player1.money() + 100       
+                        player2.money = player2.money() - 100
+                        player1.money = player1.money() + 100       
                     if(q == 3):
-                        player2.money() - 200
-                        player1.money() + 200
+                        player2.money = player2.money() - 200
+                        player1.money = player1.money() + 200
                     q = 0                                         
                     return 2
             elif(vakjes[5] == 2):
@@ -239,17 +239,17 @@ def positiecheck(positie, type, worp):
                     if(vakjes[35] == 2):
                         q = q + 1
                     if(q == 0):
-                        player1.money() - 25
-                        player2.money() + 25
+                        player1.money = player1.money() - 25
+                        player2.money = player2.money() + 25
                     if(q == 1):
-                        player1.money() - 50
-                        player2.money() + 50
+                        player1.money = player1.money() - 50
+                        player2.money = player2.money() + 50
                     if(q == 2):
-                        player1.money() - 100
-                        player2.money() + 100       
+                        player1.money = player1.money() - 100
+                        player2.money = player2.money() + 100       
                     if(q == 3):
-                        player1.money() - 200
-                        player2.money() + 200
+                        player1.money = player1.money() - 200
+                        player2.money = player2.money() + 200
                     q = 0   
                     return 2
         elif positie == 6:
@@ -258,14 +258,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[6] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 30
-                    player1.money() + 30
+                    player2.money = player2.money() - 30
+                    player1.money = player1.money() + 30
                     return 2
             elif(vakjes[6] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 30
-                    player2.money() + 30
+                    player1.money = player1.money() - 30
+                    player2.money = player2.money() + 30
                     return 2
         elif positie == 7:
             #kans
@@ -277,14 +277,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[8] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 30
-                    player1.money() + 30
+                    player2.money = player2.money() - 30
+                    player1.money = player1.money() + 30
                     return 2
             elif(vakjes[8] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 30
-                    player2.money() + 30
+                    player1.money = player1.money() - 30
+                    player2.money = player2.money() + 30
                     return 2
         elif positie == 9:
             if(vakjes[9] == 0):
@@ -292,14 +292,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[9] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 40
-                    player1.money() + 40
+                    player2.money = player2.money() - 40
+                    player1.money = player1.money() + 40
                     return 2
             elif(vakjes[9] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 40
-                    player2.money() + 40
+                    player1.money = player1.money() - 40
+                    player2.money = player2.money() + 40
                     return 2
         elif positie == 10:
             #op bezoek
@@ -310,14 +310,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[11] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 50
-                    player1.money() + 50
+                    player2.money = player2.money() - 50
+                    player1.money = player1.money() + 50
                     return 2
             elif(vakjes[11] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 50
-                    player2.money() + 50
+                    player1.money = player1.money() - 50
+                    player2.money = player2.money() + 50
                     return 2
         elif positie == 12:
             #kijk hoeveel vakjes van dit die heeft anders * 10
@@ -327,21 +327,21 @@ def positiecheck(positie, type, worp):
                 if(type == 2):
                     #betalen
                     if(vakjes[28] == 1):
-                        player2.money() - (worp * 10)
-                        player1.money() + (worp * 10)
+                        player2.money = player2.money() - (worp * 10)
+                        player1.money = player1.money() + (worp * 10)
                     else:
-                        player2.money() - (worp * 4)
-                        player1.money() + (worp * 4)
+                        player2.money = player2.money() - (worp * 4)
+                        player1.money = player1.money() + (worp * 4)
                     return 2
             elif(vakjes[12] == 2):
                 if(type == 1):
                     #betalen
                     if(vakjes[28] == 2):
-                        player1.money() - (worp * 10)
-                        player2.money() + (worp * 10)
+                        player1.money = player1.money() - (worp * 10)
+                        player2.money = player2.money() + (worp * 10)
                     else:
-                        player1.money() - (worp * 4)
-                        player2.money() + (worp * 4)
+                        player1.money = player1.money() - (worp * 4)
+                        player2.money = player2.money() + (worp * 4)
                     return 2
         elif positie == 13:
             if(vakjes[13] == 0):
@@ -349,14 +349,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[13] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 50
-                    player1.money() + 50
+                    player2.money = player2.money() - 50
+                    player1.money = player1.money() + 50
                     return 2
             elif(vakjes[13] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 50
-                    player2.money() + 50
+                    player1.money = player1.money() - 50
+                    player2.money = player2.money() + 50
                     return 2
         elif positie == 14:
             if(vakjes[14] == 0):
@@ -364,14 +364,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[14] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 60
-                    player1.money() + 60
+                    player2.money = player2.money() - 60
+                    player1.money = player1.money() + 60
                     return 2
             elif(vakjes[14] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 60
-                    player2.money() + 60
+                    player1.money = player1.money() - 60
+                    player2.money = player2.money() + 60
                     return 2
         elif positie == 15:
             #kijken welke andere vakjes de speler nog heeft
@@ -388,17 +388,17 @@ def positiecheck(positie, type, worp):
                     if(vakjes[35] == 1):
                         q = q + 1
                     if(q == 0):
-                        player2.money() - 25
-                        player1.money() + 25
+                        player2.money = player2.money() - 25
+                        player1.money = player1.money() + 25
                     if(q == 1):
-                        player2.money() - 50
-                        player1.money() + 50
+                        player2.money = player2.money() - 50
+                        player1.money = player1.money() + 50
                     if(q == 2):
-                        player2.money() - 100
-                        player1.money() + 100       
+                        player2.money = player2.money() - 100
+                        player1.money = player1.money() + 100       
                     if(q == 3):
-                        player2.money() - 200
-                        player1.money() + 200
+                        player2.money = player2.money() - 200
+                        player1.money = player1.money() + 200
                     q = 0          
                     return 2
             elif(vakjes[15] == 2):
@@ -412,17 +412,17 @@ def positiecheck(positie, type, worp):
                     if(vakjes[35] == 2):
                         q = q + 1
                     if(q == 0):
-                        player1.money() - 25
-                        player2.money() + 25
+                        player1.money = player1.money() - 25
+                        player2.money = player2.money() + 25
                     if(q == 1):
-                        player1.money() - 50
-                        player2.money() + 50
+                        player1.money = player1.money() - 50
+                        player2.money = player2.money() + 50
                     if(q == 2):
-                        player1.money() - 100
-                        player2.money() + 100       
+                        player1.money = player1.money() - 100
+                        player2.money = player2.money() + 100       
                     if(q == 3):
-                        player1.money() - 200
-                        player2.money() + 200
+                        player1.money = player1.money() - 200
+                        player2.money = player2.money() + 200
                     q = 0   
                     return 2
         elif positie == 16:
@@ -431,14 +431,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[16] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 70
-                    player1.money() + 70
+                    player2.money = player2.money() - 70
+                    player1.money = player1.money() + 70
                     return 2
             elif(vakjes[16] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 70
-                    player2.money() + 70
+                    player1.money = player1.money() - 70
+                    player2.money = player2.money() + 70
                     return 2
         elif positie == 17:
             #algemeen fonds
@@ -450,14 +450,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[18] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 70
-                    player1.money() + 70
+                    player2.money = player2.money() - 70
+                    player1.money = player1.money() + 70
                     return 2
             elif(vakjes[18] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 70
-                    player2.money() + 70
+                    player1.money = player1.money() - 70
+                    player2.money = player2.money() + 70
                     return 2
         elif positie == 19:
             if(vakjes[19] == 0):
@@ -465,14 +465,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[19] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 80
-                    player1.money() + 80
+                    player2.money = player2.money() - 80
+                    player1.money = player1.money() + 80
                     return 2
             elif(vakjes[19] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 80
-                    player2.money() + 80
+                    player1.money = player1.money() - 80
+                    player2.money = player2.money() + 80
                     return 2
         elif positie == 20:
             #vrij parkeren
@@ -487,14 +487,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[21] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 90
-                    player1.money() + 90
+                    player2.money = player2.money() - 90
+                    player1.money = player1.money() + 90
                     return 2
             elif(vakjes[21] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 90
-                    player2.money() + 90
+                    player1.money = player1.money() - 90
+                    player2.money = player2.money() + 90
                     return 2
         elif positie == 22:
             #kans
@@ -506,14 +506,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[23] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 90
-                    player1.money() + 90
+                    player2.money = player2.money() - 90
+                    player1.money = player1.money() + 90
                     return 2
             elif(vakjes[23] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 90
-                    player2.money() + 90
+                    player1.money = player1.money() - 90
+                    player2.money = player2.money() + 90
                     return 2
         elif positie == 24:
             if(vakjes[24] == 0):
@@ -521,14 +521,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[24] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 100
-                    player1.money() + 100
+                    player2.money = player2.money() - 100
+                    player1.money = player1.money() + 100
                     return 2
             elif(vakjes[24] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 100
-                    player2.money() + 100
+                    player1.money = player1.money() - 100
+                    player2.money = player2.money() + 100
                     return 2
         elif positie == 25:
             #kijken welke andere vakjes in bezit van speler zijn
@@ -545,17 +545,17 @@ def positiecheck(positie, type, worp):
                     if(vakjes[35] == 1):
                         q = q + 1
                     if(q == 0):
-                        player2.money() - 25
-                        player1.money() + 25
+                        player2.money = player2.money() - 25
+                        player1.money = player1.money() + 25
                     if(q == 1):
-                        player2.money() - 50
-                        player1.money() + 50
+                        player2.money = player2.money() - 50
+                        player1.money = player1.money() + 50
                     if(q == 2):
-                        player2.money() - 100
-                        player1.money() + 100       
+                        player2.money = player2.money() - 100
+                        player1.money = player1.money() + 100       
                     if(q == 3):
-                        player2.money() - 200
-                        player1.money() + 200
+                        player2.money = player2.money() - 200
+                        player1.money = player1.money() + 200
                     q = 0    
                     return 2
             elif(vakjes[25] == 2):
@@ -569,17 +569,17 @@ def positiecheck(positie, type, worp):
                     if(vakjes[35] == 2):
                         q = q + 1
                     if(q == 0):
-                        player1.money() - 25
-                        player2.money() + 25
+                        player1.money = player1.money() - 25
+                        player2.money = player2.money() + 25
                     if(q == 1):
-                        player1.money() - 50
-                        player2.money() + 50
+                        player1.money = player1.money() - 50
+                        player2.money = player2.money() + 50
                     if(q == 2):
-                        player1.money() - 100
-                        player2.money() + 100       
+                        player1.money = player1.money() - 100
+                        player2.money = player2.money() + 100       
                     if(q == 3):
-                        player1.money() - 200
-                        player2.money() + 200
+                        player1.money = player1.money() - 200
+                        player2.money = player2.money() + 200
                     q = 0  
                     return 2
         elif positie == 26:
@@ -588,14 +588,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[26] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 110
-                    player1.money() + 110
+                    player2.money = player2.money() - 110
+                    player1.money = player1.money() + 110
                     return 2
             elif(vakjes[26] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() -110
-                    player2.money() + 110
+                    player1.money = player1.money() -110
+                    player2.money = player2.money() + 110
                     return 2
         elif positie == 27:
             if(vakjes[27] == 0):
@@ -603,14 +603,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[27] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 110
-                    player1.money() + 110
+                    player2.money = player2.money() - 110
+                    player1.money = player1.money() + 110
                     return 2
             elif(vakjes[27] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 110
-                    player2.money() + 110
+                    player1.money = player1.money() - 110
+                    player2.money = player2.money() + 110
                     return 2
         elif positie == 28:
             #kijken welke andere kaarten in bezit zijn speler
@@ -620,21 +620,21 @@ def positiecheck(positie, type, worp):
                 if(type == 2):
                     #betalen
                     if(vakjes[12] == 1):
-                        player2.money() - (worp * 10)
-                        player1.money() + (worp * 10)
+                        player2.money = player2.money() - (worp * 10)
+                        player1.money = player1.money() + (worp * 10)
                     else:
-                        player2.money() - (worp * 4)
-                        player1.money() + (worp * 4)
+                        player2.money = player2.money() - (worp * 4)
+                        player1.money = player1.money() + (worp * 4)
                     return 2
             elif(vakjes[28] == 2):
                 if(type == 1):
                     #betalen
                     if(vakjes[12] == 2):
-                        player1.money() - (worp * 10)
-                        player2.money() + (worp * 10)
+                        player1.money = player1.money() - (worp * 10)
+                        player2.money = player2.money() + (worp * 10)
                     else:
-                        player1.money() - (worp * 4)
-                        player2.money() + (worp * 4)
+                        player1.money = player1.money() - (worp * 4)
+                        player2.money = player2.money() + (worp * 4)
                     return 2
         elif positie == 29:
             if(vakjes[29] == 0):
@@ -642,14 +642,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[29] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 120
-                    player1.money() + 120
+                    player2.money = player2.money() - 120
+                    player1.money = player1.money() + 120
                     return 2
             elif(vakjes[29] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 120
-                    player2.money() + 120
+                    player1.money = player1.money() - 120
+                    player2.money = player2.money() + 120
                     return 2
         elif positie == 30:
             #naar de gevangenis
@@ -660,14 +660,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[31] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 130
-                    player1.money() + 130
+                    player2.money = player2.money() - 130
+                    player1.money = player1.money() + 130
                     return 2
             elif(vakjes[31] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 130
-                    player2.money() + 130
+                    player1.money = player1.money() - 130
+                    player2.money = player2.money() + 130
                     return 2
         elif positie == 32:
             if(vakjes[32] == 0):
@@ -675,14 +675,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[32] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 130
+                    player2.money = player2.money() - 130
                     player1.money() + 130
                     return 2
             elif(vakjes[32] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 130
-                    player2.money() + 130
+                    player1.money = player1.money() - 130
+                    player2.money = player2.money() + 130
                     return 2
         elif positie == 33:
             #algemeen fonds
@@ -694,14 +694,14 @@ def positiecheck(positie, type, worp):
             elif(vakjes[34] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 150
-                    player1.money() + 150
+                    player2.money = player2.money() - 150
+                    player1.money = player1.money() + 150
                     return 2
             elif(vakjes[34] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 150
-                    player2.money() + 150
+                    player1.money = player1.money() - 150
+                    player2.money = player2.money() + 150
                     return 2
         elif positie == 35:
             #kijken hoeveel vakjes er van in bezit zijn
@@ -718,17 +718,17 @@ def positiecheck(positie, type, worp):
                     if(vakjes[25] == 1):
                         q = q + 1
                     if(q == 0):
-                        player2.money() - 25
-                        player1.money() + 25
+                        player2.money = player2.money() - 25
+                        player1.money = player1.money() + 25
                     if(q == 1):
-                        player2.money() - 50
-                        player1.money() + 50
+                        player2.money = player2.money() - 50
+                        player1.money = player1.money() + 50
                     if(q == 2):
-                        player2.money() - 100
-                        player1.money() + 100       
+                        player2.money = player2.money() - 100
+                        player1.money = player1.money() + 100       
                     if(q == 3):
-                        player2.money() - 200
-                        player1.money() + 200
+                        player2.money = player2.money() - 200
+                        player1.money = player1.money() + 200
                     q = 0   
                     return 2
             elif(vakjes[35] == 2):
@@ -742,17 +742,17 @@ def positiecheck(positie, type, worp):
                     if(vakjes[25] == 2):
                         q = q + 1
                     if(q == 0):
-                        player1.money() - 25
-                        player2.money() + 25
+                        player1.money = player1.money() - 25
+                        player2.money = player2.money() + 25
                     if(q == 1):
-                        player1.money() - 50
-                        player2.money() + 50
+                        player1.money = player1.money() - 50
+                        player2.money = player2.money() + 50
                     if(q == 2):
-                        player1.money() - 100
-                        player2.money() + 100       
+                        player1.money = player1.money() - 100
+                        player2.money = player2.money() + 100       
                     if(q == 3):
-                        player1.money() - 200
-                        player2.money() + 200
+                        player1.money = player1.money() - 200
+                        player2.money = player2.money() + 200
                     q = 0 
                     return 2
         elif positie == 36:
@@ -765,23 +765,23 @@ def positiecheck(positie, type, worp):
             elif(vakjes[37] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 175
-                    player1.money() + 175
+                    player2.money = player2.money() - 175
+                    player1.money = player1.money() + 175
                     return 2
             elif(vakjes[37] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 175
-                    player2.money() + 175
+                    player1.money = player1.money() - 175
+                    player2.money = player2.money() + 175
                     return 2
         elif positie == 38:
             #supertax
             if(type == 2):
-                player2.money() - 100
-                pot + 100
+                player2.money = player2.money() - 100
+                pot = pot + 100
             if(type == 3):
-                player1.money() - 100
-                pot + 100
+                player1.money = player1.money() - 100
+                pot = pot + 100
             return 2
         elif positie == 39:
             if(vakjes[39] == 0):
@@ -789,131 +789,131 @@ def positiecheck(positie, type, worp):
             elif(vakjes[39] == 1):
                 if(type == 2):
                     #betalen
-                    player2.money() - 200
-                    player1.money() + 200
+                    player2.money = player2.money() - 200
+                    player1.money = player1.money() + 200
                     return 2
             elif(vakjes[39] == 2):
                 if(type == 1):
                     #betalen
-                    player1.money() - 200
-                    player2.money() + 200
+                    player1.money = player1.money() - 200
+                    player2.money = player2.money() + 200
                     return 2
     elif(type == 3):
         vakjes[positie] = 1
         if(positie == 1):
-            player1.money() - 60
+            player1.money = player1.money() - 60
         elif(positie == 3):
-            player1.money() - 60
+            player1.money = player1.money() - 60
         elif(positie == 5):
-            player1.money() - 200
+            player1.money = player1.money() - 200
         elif(positie == 6):
-            player1.money() - 100
+            player1.money = player1.money() - 100
         elif(positie == 8):
-            player1.money() - 100
+            player1.money = player1.money() - 100
         elif(positie == 9):
-            player1.money() - 120
+            player1.money = player1.money() - 120
         elif(positie == 11):
-            player1.money() - 140
+            player1.money = player1.money() - 140
         elif(positie == 12):
-            player1.money() - 150
+            player1.money = player1.money() - 150
         elif(positie == 13):
-            player1.money() - 140
+            player1.money = player1.money() - 140
         elif(positie == 14):
-            player1.money() - 160
+            player1.money = player1.money() - 160
         elif(positie == 15):
-            player1.money() - 200
+            player1.money = player1.money() - 200
         elif(positie == 16):
-            player1.money() - 180
+            player1.money = player1.money() - 180
         elif(positie == 18):
-            player1.money() - 180
+            player1.money = player1.money() - 180
         elif(positie == 19):
-            player1.money() - 200
+            player1.money = player1.money() - 200
         elif(positie == 21):
-            player1.money() - 220
+            player1.money = player1.money() - 220
         elif(positie == 23):
-            player1.money() - 220
+            player1.money = player1.money() - 220
         elif(positie == 24):
-            player1.money() - 240
+            player1.money = player1.money() - 240
         elif(positie == 25):
-            player1.money() - 200
+            player1.money = player1.money() - 200
         elif(positie == 26):
-            player1.money() - 260
+            player1.money = player1.money() - 260
         elif(positie == 27):
-            player1.money() - 260
+            player1.money = player1.money() - 260
         elif(positie == 28):
-            player1.money() - 150
+            player1.money = player1.money() - 150
         elif(positie == 29):
-            player1.money() - 280
+            player1.money = player1.money() - 280
         elif(positie == 31):
-            player1.money() - 300
+            player1.money = player1.money() - 300
         elif(positie == 32):
-            player1.money() - 300
+            player1.money = player1.money() - 300
         elif(positie == 34):
-            player1.money() - 320
+            player1.money = player1.money() - 320
         elif(positie == 35):
-            player1.money() - 200
+            player1.money = player1.money() - 200
         elif(positie == 37):
-            player1.money() - 350
+            player1.money = player1.money() - 350
         elif(positie == 39):
-            player1.money() - 400
+            player1.money = player1.money() - 400
     elif(type == 4):
         vakjes[positie] = 2
         if(positie == 1):
-            player2.money() - 60
+            player2.money = player2.money() - 60
         elif(positie == 3):
-            player2.money() - 60
+            player2.money = player2.money() - 60
         elif(positie == 5):
-            player2.money() - 200
+            player2.money = player2.money() - 200
         elif(positie == 6):
-            player2.money() - 100
+            player2.money = player2.money() - 100
         elif(positie == 8):
-            player2.money() - 100
+            player2.money = player2.money() - 100
         elif(positie == 9):
-            player2.money() - 120
+            player2.money = player2.money() - 120
         elif(positie == 11):
-            player2.money() - 140
+            player2.money = player2.money() - 140
         elif(positie == 12):
-            player2.money() - 150
+            player2.money = player2.money() - 150
         elif(positie == 13):
-            player2.money() - 140
+            player2.money = player2.money() - 140
         elif(positie == 14):
-            player2.money() - 160
+            player2.money = player2.money() - 160
         elif(positie == 15):
-            player2.money() - 200
+            player2.money = player2.money() - 200
         elif(positie == 16):
-            player2.money() - 180
+            player2.money = player2.money() - 180
         elif(positie == 18):
-            player2.money() - 180
+            player2.money = player2.money() - 180
         elif(positie == 19):
-            player2.money() - 200
+            player2.money = player2.money() - 200
         elif(positie == 21):
-            player2.money() - 220
+            player2.money = player2.money() - 220
         elif(positie == 23):
-            player2.money() - 220
+            player2.money = player2.money() - 220
         elif(positie == 24):
-            player2.money() - 240
+            player2.money = player2.money() - 240
         elif(positie == 25):
-            player2.money() - 200
+            player2.money = player2.money() - 200
         elif(positie == 26):
-            player2.money() - 260
+            player2.money = player2.money() - 260
         elif(positie == 27):
-            player2.money() - 260
+            player2.money = player2.money() - 260
         elif(positie == 28):
-            player2.money() - 150
+            player2.money = player2.money() - 150
         elif(positie == 29):
-            player2.money() - 280
+            player2.money = player2.money() - 280
         elif(positie == 31):
-            player2.money() - 300
+            player2.money = player2.money() - 300
         elif(positie == 32):
-            player2.money() - 300
+            player2.money = player2.money() - 300
         elif(positie == 34):
-            player2.money() - 320
+            player2.money = player2.money() - 320
         elif(positie == 35):
-            player2.money() - 200
+            player2.money = player2.money() - 200
         elif(positie == 37):
-            player2.money() - 350
+            player2.money = player2.money() - 350
         elif(positie == 39):
-            player2.money() - 400
+            player2.money = player2.money() - 400
     
 def dobbelen():
     int1 = random.randint(1,6)
