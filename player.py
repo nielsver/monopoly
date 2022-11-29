@@ -10,6 +10,11 @@ class player():
         self.y_pos = pos[1]
         self.name = name
 
+    def addmoney(self, amount):
+        self.money += amount
+
+    def subtractmoney(self, amount):
+        self.money -= amount
         
     #def checkmoney(money, self):
      #   return self.money

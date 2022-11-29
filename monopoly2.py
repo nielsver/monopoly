@@ -162,6 +162,7 @@ def positiecheck(positie, type, worp):
             #geld ontvangen 
             if(type == 1):
                 player1.money = player1.money() + 200
+                #player1.addmoney(200)
             if(type == 2):
                 player2.money = player2.money() + 200
             return 2
