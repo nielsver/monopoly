@@ -10,11 +10,10 @@ class player():
         self.y_pos = pos[1]
         self.name = name
 
-    def addmoney(self, amount):
-        self.money += amount
-
-    def subtractmoney(self, amount):
-        self.money -= amount
+    def update(self, screen):
+        screen.blit(self.image, (self.x_pos, self.y_pos))
+        
+    
         
     #def checkmoney(money, self):
      #   return self.money
