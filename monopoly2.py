@@ -111,8 +111,68 @@ def naardegevangenis(speler):
 def algemeenfonds():
     #algemeenfonds
     print("algemeenfonds")
-def kans():
-    print("kans")
+def kans(type):                # we zouden nog een text moeten tonen van bv. speler 1 heeft 50 euro gewonnen
+    
+    list1 = [0,1,2,3,4]
+    list2 = [5,6,7,8,9]
+    list3 = [10,11,12,13,14]
+    list4 = [15,16,17,18,19]
+    list5 = [20,21,22,23,24]
+    list6 = [25,26,27,28,29]
+    list7 = [30,31,32,33,34]
+    list8 = [35,36,37,38,39]
+    kansint = random.randint(0,39)
+    for x in list1:
+        if kansint == x:
+            if type == 1:
+                player1.money += 50
+            if type == 2:
+                player2.money += 50
+    for x in list2:
+        if kansint == x:
+            if type == 1:
+                player1.money += 25
+            if type == 2:
+                player2.money += 25
+    for x in list3:
+        if kansint == x:
+            if type == 1:
+                player1.money += 100
+            if type == 2:
+                player2.money += 100
+    for x in list4:
+        if kansint == x:
+            if type == 1:
+                player1.money += 150
+            if type == 2:
+                player2.money += 150
+    for x in list5:
+        if kansint == x:
+            if type == 1:
+                player1.money -= 50
+            if type == 2:
+                player2.money -= 50
+    for x in list6:
+        if kansint == x:
+            if type == 1:
+                player1.money -= 25
+            if type == 2:
+                player2.money -= 25
+    for x in list7:
+        if kansint == x:
+            if type == 1:
+                player1.money -= 100
+            if type == 2:
+                player2.money -= 100
+    for x in list8:
+        if kansint == x:
+            if type == 1:
+                player1.money -= 150
+            if type == 2:
+                player2.money -= 150
+
+        
+
 def vrijparkeren(player):
     global pot 
     global player1
