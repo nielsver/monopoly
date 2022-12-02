@@ -108,8 +108,71 @@ def naardegevangenis(speler):
     elif(speler == 2):
         speler2positie = 10
     print("in de gevangenis")
-def algemeenfonds():
+def algemeenfonds(type):
+    global speler1positie
+    global speler2positie
     #algemeenfonds
+     # we zouden nog een text moeten tonen van bv. speler 1 is zoveel posities opgeschoven
+    
+    list1 = [0,1,2,3,4]
+    list2 = [5,6,7,8,9]
+    list3 = [10,11,12,13,14]
+    list4 = [15,16,17,18,19]
+    list5 = [20,21,22,23,24]
+    list6 = [25,26,27,28,29]
+    list7 = [30,31,32,33,34]
+    list8 = [35,36,37,38,39]
+    kansint = random.randint(0,39)
+    for x in list1:
+        if kansint == x:
+            if type == 1:
+                speler1positie += 5
+            if type == 2:
+                speler2positie += 5
+    for x in list2:
+        if kansint == x:
+            if type == 1:
+                speler1positie += 10
+            if type == 2:
+                speler2positie += 10
+    for x in list3:
+        if kansint == x:
+            if type == 1:
+                speler1positie += 2
+            if type == 2:
+                speler2positie += 2
+    for x in list4:
+        if kansint == x:
+            if type == 1:
+                speler1positie += 12
+            if type == 2:
+                speler2positie += 12
+    for x in list5:
+        if kansint == x:
+            if type == 1:
+                speler1positie -= 5
+            if type == 2:
+                speler2positie -= 5
+    for x in list6:
+        if kansint == x:
+            if type == 1:
+                speler1positie -= 10
+            if type == 2:
+                speler2positie -= 10
+    for x in list7:
+        if kansint == x:
+            if type == 1:
+                speler1positie -= 2
+            if type == 2:
+                speler2positie -= 2
+    for x in list8:
+        if kansint == x:
+            if type == 1:
+                speler1positie -= 12
+            if type == 2:
+                speler2positie -= 12
+
+        
     print("algemeenfonds")
 def kans(type):                # we zouden nog een text moeten tonen van bv. speler 1 heeft 50 euro gewonnen
     
@@ -247,7 +310,10 @@ def positiecheck(positie, type, worp):
                     return 2
         elif positie == 2:
             #algemeen fonds
-            algemeenfonds()
+            if(type == 1):
+                algemeenfonds(1)
+            else:
+                algemeenfonds(2)
             return 2
         elif positie == 3:
             if(vakjes[3] == 0):
@@ -294,7 +360,7 @@ def positiecheck(positie, type, worp):
                         player2.money -= 50
                         player1.money += 50
                     if(q == 2):
-                        player2.money -= 100 #volgens mij moet dit 100 zijn en die hieronder 200
+                        player2.money -= 100 
                         player1.money += 100       
                     if(q == 3):
                         player2.money -= 200
@@ -343,7 +409,10 @@ def positiecheck(positie, type, worp):
                     return 2
         elif positie == 7:
             #kans
-            kans()
+            if(type == 1):
+                kans(1)
+            else:
+                kans(2)
             return 2
         elif positie == 8:
             if(vakjes[8] == 0):
@@ -522,7 +591,10 @@ def positiecheck(positie, type, worp):
                     return 2
         elif positie == 17:
             #algemeen fonds
-            algemeenfonds()
+            if(type == 1):
+                algemeenfonds(1)
+            else:
+                algemeenfonds(2)
             return 2
         elif positie == 18:
             if(vakjes[18] == 0):
@@ -578,7 +650,10 @@ def positiecheck(positie, type, worp):
                     return 2
         elif positie == 22:
             #kans
-            kans()
+            if(type == 1):
+                kans(1)
+            else:
+                kans(2)
             return 2
         elif positie == 23:
             if(vakjes[23] == 0):
@@ -767,7 +842,10 @@ def positiecheck(positie, type, worp):
                     return 2
         elif positie == 33:
             #algemeen fonds
-            algemeenfonds()
+            if(type == 1):
+                algemeenfonds(1)
+            else:
+                algemeenfonds(2)
             return 2
         elif positie == 34:
             if(vakjes[34] == 0):
@@ -838,7 +916,10 @@ def positiecheck(positie, type, worp):
                     return 2
         elif positie == 36:
             #kans
-            kans()
+            if(type == 1):
+                kans(1)
+            else:
+                kans(2)
             return 2
         elif positie == 37:
             if(vakjes[37] == 0):
