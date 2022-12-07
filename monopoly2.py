@@ -49,8 +49,12 @@ indegevangenis1 = 0
 indegevangenis2 = 0
 tijdingevangenis = 0
 vakjes = [0] * 40
-player1 = player("./monopoly-hat-01.jpg",(600,600),1500,0,"player1")
-player2 = player("./dog.jpg",(600,600),1500,0,"player2")
+hat = pygame.image.load('./monopoly-hat-01.jpg').convert()
+hat = pygame.transform.scale(hat,(25,25))
+player1 = player(hat,600,600,1500,0,"player1")
+dog = pygame.image.load('./dog.jpg').convert()
+dog = pygame.transform.scale(dog,(25,25))
+player2 = player(dog,600,600,1500,0,"player2")
 #Set up fonts
 basicFont = pygame.font.SysFont(None, 48)
 Largefont = pygame.font.SysFont(None, 80)
@@ -84,6 +88,7 @@ dobbelsteen5 = pygame.image.load("./dobbelstenen/dobbelsteen5.PNG").convert()
 dobbelsteen5 = pygame.transform.scale(dobbelsteen5, (100,100))
 dobbelsteen6 = pygame.image.load("./dobbelstenen/dobbelsteen6.PNG").convert()
 dobbelsteen6 = pygame.transform.scale(dobbelsteen6, (100,100))
+
 
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("./font.ttf", size)
@@ -130,8 +135,8 @@ def naardegevangenis(speler):
         player2.x_pos = 50
         player1.y_pos = 50
         indegevangenis2 = 1
-    player1.update(screen)
-    player2.update(screen)
+    player1.update(windowSurface)
+    player2.update(windowSurface)
     print("in de gevangenis")
 def algemeenfonds(type):
     global speler1positie
@@ -376,7 +381,7 @@ def positie1(gedobbeltnummer):
                 player1.y_pos = 150 
             elif(speler1positie == 40):
                 player1.y_pos = 50
-    player1.update(screen)
+    player1.update(windowSurface)
     return speler1positie
 def positie2(gedobbeltnummer):
     global z
@@ -490,7 +495,7 @@ def positie2(gedobbeltnummer):
             player2.y_pos = 50
 
     
-    player2.update(screen)
+    player2.update(windowSurface)
     return speler2positie
 def positiecheck(positie, type, worp):
     #type = 1 speler1
