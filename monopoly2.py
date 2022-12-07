@@ -130,8 +130,8 @@ def naardegevangenis(speler):
         player2.x_pos = 50
         player1.y_pos = 50
         indegevangenis2 = 1
-    player1.update(screen)
-    player2.update(screen)
+    player1.update(windowSurface)
+    player2.update(windowSurface)
     print("in de gevangenis")
 def algemeenfonds(type):
     global speler1positie
@@ -376,7 +376,7 @@ def positie1(gedobbeltnummer):
                 player1.y_pos = 150 
             elif(speler1positie == 40):
                 player1.y_pos = 50
-    player1.update(screen)
+    player1.update(windowSurface)
     return speler1positie
 def positie2(gedobbeltnummer):
     global z
@@ -490,7 +490,7 @@ def positie2(gedobbeltnummer):
             player2.y_pos = 50
 
     
-    player2.update(screen)
+    player2.update(windowSurface)
     return speler2positie
 def positiecheck(positie, type, worp):
     #type = 1 speler1
