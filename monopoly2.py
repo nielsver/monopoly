@@ -51,10 +51,10 @@ tijdingevangenis = 0
 vakjes = [0] * 40
 hat = pygame.image.load('./monopoly-hat-01.jpg').convert()
 hat = pygame.transform.scale(hat,(25,25))
-player1 = player(hat,600,600,1500,0,"player1")
+player1 = player(hat,750,750,1500,0,"player1")
 dog = pygame.image.load('./dog.jpg').convert()
 dog = pygame.transform.scale(dog,(25,25))
-player2 = player(dog,600,600,1500,0,"player2")
+player2 = player(dog,750,750,1500,0,"player2")
 #Set up fonts
 basicFont = pygame.font.SysFont(None, 48)
 Largefont = pygame.font.SysFont(None, 80)
@@ -128,15 +128,17 @@ def naardegevangenis(speler):
     if(speler == 1):
         speler1positie = 10
         player1.x_pos = 50
-        player1.y_pos = 50
+        player1.y_pos = 750
         indegevangenis1 = 1
     elif(speler == 2):
         speler2positie = 10
         player2.x_pos = 50
-        player1.y_pos = 50
+        player1.y_pos = 750
         indegevangenis2 = 1
     player1.update(windowSurface)
     player2.update(windowSurface)
+    pygame.display.update()
+    pygame.display.flip()
     print("in de gevangenis")
 def algemeenfonds(type):
     global speler1positie
@@ -285,103 +287,105 @@ def positie1(gedobbeltnummer):
         if (speler1positie >= 40):
             player1.money += 200
             speler1positie = speler1positie - 40
-        if(speler1positie >= 10):
-            player1.y_pos = 50
-            if(speler1positie == 0):
-                player1.x_pos = 1050
-            elif(speler1positie == 1):
-                player1.x_pos = 950
-            elif(speler1positie == 2):
-                player1.x_pos = 850
-            elif(speler1positie == 3):
-                player1.x_pos = 750
-            elif(speler2positie == 4):
-                player1.x_pos = 650   
-            if(speler1positie == 5):
-                player1.x_pos = 550
-            elif(speler1positie == 6):
-                player1.x_pos = 450
-            elif(speler1positie == 7):
-                player1.x_pos = 350
-            elif(speler1positie == 8):
-                player1.x_pos = 250
-            elif(speler1positie == 9):
-                player1.x_pos = 150 
-            elif(speler1positie == 10):
-                player1.x_pos = 50
-        elif(10 < speler1positie <= 20 ):
+    if(speler1positie >= 10):
+        player1.y_pos = 750
+        if(speler1positie == 0):
+            player1.x_pos = 750
+        elif(speler1positie == 1):
+            player1.x_pos = 682
+        elif(speler1positie == 2):
+             player1.x_pos = 616
+        elif(speler1positie == 3):
+             player1.x_pos = 550
+        elif(speler2positie == 4):
+             player1.x_pos = 484
+        elif(speler1positie == 5):
+             player1.x_pos = 418
+        elif(speler1positie == 6):
+             player1.x_pos = 352
+        elif(speler1positie == 7):
+            player1.x_pos = 286
+        elif(speler1positie == 8):
+             player1.x_pos = 220
+        elif(speler1positie == 9):
+             player1.x_pos = 154
+        elif(speler1positie == 10):
             player1.x_pos = 50
-            if(speler1positie == 10):
-                player1.y_pos = 50
-            elif(speler1positie == 11):
-                player1.y_pos = 150
-            elif(speler1positie ==12):
-                player1.y_pos = 250
-            elif(speler1positie == 13):
-                player1.y_pos = 350
-            elif(speler1positie == 14):
-                player1.y_pos = 450   
-            if(speler1positie == 15):
-                player1.y_pos = 550
-            elif(speler1positie == 16):
-                player1.y_pos = 650
-            elif(speler1positie == 17):
+    elif(10 < speler1positie <= 20 ):
+        player1.x_pos = 50
+        if(speler1positie == 10):
                 player1.y_pos = 750
-            elif(speler1positie == 18):
-                player1.y_pos = 850
-            elif(speler1positie == 19):
-                player1.y_pos = 950 
-            elif(speler1positie == 20):
-                player1.y_pos = 1050
-        elif(20 < speler1positie <= 30):
-            player1.y_pos = 1050
-            if(speler1positie == 20):
-                player1.x_pos = 50
-            elif(speler1positie == 21):
-                player1.x_pos = 150
-            elif(speler1positie == 22):
-                player1.x_pos = 250
-            elif(speler1positie == 23):
-                player1.x_pos = 350
-            elif(speler1positie == 24):
-                player1.x_pos = 450  
-            if(speler1positie == 25):
+        elif(speler1positie == 11):
+                player1.y_pos = 682
+        elif(speler1positie ==12):
+                player1.y_pos = 616
+        elif(speler1positie == 13):
+                player1.y_pos = 550
+        elif(speler1positie == 14):
+                player1.y_pos = 484   
+        elif(speler1positie == 15):
+                player1.y_pos = 418
+        elif(speler1positie == 16):
+                player1.y_pos = 352
+        elif(speler1positie == 17):
+                player1.y_pos = 286
+        elif(speler1positie == 18):
+                player1.y_pos = 220
+        elif(speler1positie == 19):
+                player1.y_pos = 154 
+        elif(speler1positie == 20):
+                player1.y_pos = 50
+    elif(20 < speler1positie <= 30):
+        player1.y_pos = 50
+        if(speler1positie == 20):
+            player1.x_pos = 50
+        elif(speler1positie == 21):
+                player1.x_pos = 154
+        elif(speler1positie == 22):
+                player1.x_pos = 220
+        elif(speler1positie == 23):
+                player1.x_pos = 286
+        elif(speler1positie == 24):
+                player1.x_pos = 352  
+        elif(speler1positie == 25):
+                player1.x_pos = 418
+        elif(speler1positie == 26):
+                player1.x_pos = 484
+        elif(speler1positie == 27):
                 player1.x_pos = 550
-            elif(speler1positie == 26):
-                player1.x_pos = 650
-            elif(speler1positie == 27):
+        elif(speler1positie == 28):
+                player1.x_pos = 616
+        elif(speler1positie == 29):
+                player1.x_pos = 682 
+        elif(speler1positie == 30):
                 player1.x_pos = 750
-            elif(speler1positie == 28):
-                player1.x_pos = 850
-            elif(speler1positie == 29):
-                player1.x_pos = 950 
-            elif(speler1positie == 30):
-                player1.x_pos = 1050
-        else:
-            player1.x_pos = 1050
-            if(speler1positie == 30):
-                player1.y_pos = 1050
-            elif(speler1positie == 31):
-                player1.y_pos = 950
-            elif(speler1positie ==32):
-                player1.y_pos = 850
-            elif(speler1positie == 33):
+    else:
+        player1.x_pos = 750
+        if(speler1positie == 30):
+               player1.y_pos = 50
+        elif(speler1positie == 31):
+            player1.y_pos = 154
+        elif(speler1positie ==32):
+             player1.y_pos = 220
+        elif(speler1positie == 33):
+            player1.y_pos = 286
+        elif(speler1positie == 34):
+             player1.y_pos = 352  
+        elif(speler1positie == 35):
+             player1.y_pos = 418
+        elif(speler1positie == 36):
+            player1.y_pos = 484
+        elif(speler1positie == 37):
+             player1.y_pos = 550
+        elif(speler1positie == 38):
+            player1.y_pos = 616
+        elif(speler1positie == 39):
+             player1.y_pos = 682 
+        elif(speler1positie == 40):
                 player1.y_pos = 750
-            elif(speler1positie == 34):
-                player1.y_pos = 650  
-            if(speler1positie == 35):
-                player1.y_pos = 550
-            elif(speler1positie == 36):
-                player1.y_pos = 450
-            elif(speler1positie == 37):
-                player1.y_pos = 350
-            elif(speler1positie == 38):
-                player1.y_pos = 250
-            elif(speler1positie == 39):
-                player1.y_pos = 150 
-            elif(speler1positie == 40):
-                player1.y_pos = 50
     player1.update(windowSurface)
+    pygame.display.update()
+    pygame.display.flip()
     return speler1positie
 def positie2(gedobbeltnummer):
     global z
@@ -396,106 +400,106 @@ def positie2(gedobbeltnummer):
             speler2positie = speler2positie - 40
             player2.money += 200
     if(speler2positie >= 10):
-        player2.y_pos = 50
+        player2.y_pos = 750
         if(speler2positie == 0):
-            player2.x_pos = 1050
-        elif(speler2positie == 1):
-            player2.x_pos = 950
-        elif(speler2positie == 2):
-            player2.x_pos = 850
-        elif(speler2positie == 3):
             player2.x_pos = 750
+        elif(speler2positie == 1):
+            player2.x_pos = 682
+        elif(speler2positie == 2):
+             player2.x_pos = 616
+        elif(speler2positie == 3):
+             player2.x_pos = 550
         elif(speler2positie == 4):
-            player2.x_pos = 650   
-        if(speler2positie == 5):
-            player2.x_pos = 550
+             player2.x_pos = 484
+        elif(speler2positie == 5):
+             player2.x_pos = 418
         elif(speler2positie == 6):
-            player2.x_pos = 450
+             player2.x_pos = 352
         elif(speler2positie == 7):
-            player2.x_pos = 350
+            player2.x_pos = 286
         elif(speler2positie == 8):
-            player2.x_pos = 250
+             player2.x_pos = 220
         elif(speler2positie == 9):
-            player2.x_pos = 150 
+             player2.x_pos = 154
         elif(speler2positie == 10):
             player2.x_pos = 50
     elif(10 < speler2positie <= 20 ):
         player2.x_pos = 50
         if(speler2positie == 10):
-            player2.y_pos = 50
+                player2.y_pos = 750
         elif(speler2positie == 11):
-            player2.y_pos = 150
+                player2.y_pos = 682
         elif(speler2positie ==12):
-            player2.y_pos = 250
+                player2.y_pos = 616
         elif(speler2positie == 13):
-            player2.y_pos = 350
+                player2.y_pos = 550
         elif(speler2positie == 14):
-            player2.y_pos = 450   
-        if(speler2positie == 15):
-            player2.y_pos = 550
+                player2.y_pos = 484   
+        elif(speler2positie == 15):
+                player2.y_pos = 418
         elif(speler2positie == 16):
-            player2.y_pos = 650
+                player2.y_pos = 352
         elif(speler2positie == 17):
-            player2.y_pos = 750
+                player2.y_pos = 286
         elif(speler2positie == 18):
-            player2.y_pos = 850
+                player2.y_pos = 220
         elif(speler2positie == 19):
-            player2.y_pos = 950 
+                player2.y_pos = 154 
         elif(speler2positie == 20):
-            player2.y_pos = 1050
-    
+                player2.y_pos = 50
     elif(20 < speler2positie <= 30):
-        player2.y_pos = 1050
+        player2.y_pos = 50
         if(speler2positie == 20):
             player2.x_pos = 50
         elif(speler2positie == 21):
-            player2.x_pos = 150
+                player2.x_pos = 154
         elif(speler2positie == 22):
-            player2.x_pos = 250
+                player2.x_pos = 220
         elif(speler2positie == 23):
-            player2.x_pos = 350
+                player2.x_pos = 286
         elif(speler2positie == 24):
-            player2.x_pos = 450  
-        if(speler2positie == 25):
-            player2.x_pos = 550
+                player2.x_pos = 352  
+        elif(speler2positie == 25):
+                player2.x_pos = 418
         elif(speler2positie == 26):
-            player2.x_pos = 650
+                player2.x_pos = 484
         elif(speler2positie == 27):
-            player2.x_pos = 750
+                player2.x_pos = 550
         elif(speler2positie == 28):
-            player2.x_pos = 850
+                player2.x_pos = 616
         elif(speler2positie == 29):
-            player2.x_pos = 950 
+                player2.x_pos = 682 
         elif(speler2positie == 30):
-            player2.x_pos = 1050
-    
+                player2.x_pos = 750
     else:
-        player2.x_pos = 1050
+        player2.x_pos = 750
         if(speler2positie == 30):
-            player2.y_pos = 1050
+               player2.y_pos = 50
         elif(speler2positie == 31):
-            player2.y_pos = 950
+            player2.y_pos = 154
         elif(speler2positie ==32):
-            player2.y_pos = 850
+             player2.y_pos = 220
         elif(speler2positie == 33):
-            player2.y_pos = 750
+            player2.y_pos = 286
         elif(speler2positie == 34):
-            player2.y_pos = 650  
-        if(speler2positie == 35):
-            player2.y_pos = 550
+             player2.y_pos = 352  
+        elif(speler2positie == 35):
+             player2.y_pos = 418
         elif(speler2positie == 36):
-            player2.y_pos = 450
+            player2.y_pos = 484
         elif(speler2positie == 37):
-            player2.y_pos = 350
+             player2.y_pos = 550
         elif(speler2positie == 38):
-            player2.y_pos = 250
+            player2.y_pos = 616
         elif(speler2positie == 39):
-            player2.y_pos = 150 
+             player2.y_pos = 682 
         elif(speler2positie == 40):
-            player2.y_pos = 50
+                player2.y_pos = 750
 
     
     player2.update(windowSurface)
+    pygame.display.update()
+    pygame.display.flip()
     return speler2positie
 def positiecheck(positie, type, worp):
     #type = 1 speler1
@@ -1365,6 +1369,8 @@ def Player2():
         pygame.display.update()
         if(player1.money > 0): 
             while aandebeurt == 1:
+                player1.update(windowSurface)
+                pygame.display.update()
                 mouse = pygame.mouse.get_pos()
                 pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200, 400, 400,400))
                 if(algedobbelt == 0):
@@ -1389,6 +1395,7 @@ def Player2():
                                     else:
                                         positiespeler1 = positie1(worp)
                                         pygame.display.update()
+                                        print(player1.x_pos)
                                         #kankopen 1 kan het worden gekocht anders 2
                                         kankopen = positiecheck(positiespeler1,1,worp)
                                         algedobbelt = 1
@@ -1461,6 +1468,8 @@ def Player2():
         pygame.display.update()
         if(player2.money >= 0):
             while aandebeurt == 2:
+                player2.update(windowSurface)
+                pygame.display.update()
                 mouse = pygame.mouse.get_pos()
                 pygame.draw.rect(windowSurface, BLUE, pygame.Rect(width/2+200, 400, 400,400))
                 if(algedobbelt == 0):
