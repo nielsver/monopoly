@@ -1,4 +1,6 @@
+import pygame
 from string import capwords
+
 
 
 class player():

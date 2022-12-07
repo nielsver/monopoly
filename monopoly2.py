@@ -40,11 +40,14 @@ ORANGE = (255, 173, 1)
 
 #init global variables
 pot = 0
-double = 0
+dubbel = 0
 i = 0 
 z = 0
 speler1positie = 0
 speler2positie = 0
+indegevangenis1 = 0
+indegevangenis2 = 0
+tijdingevangenis = 0
 vakjes = [0] * 40
 player1 = player("./monopoly-hat-01.jpg",(600,600),1500,0,"player1")
 player2 = player("./dog.jpg",(600,600),1500,0,"player2")
@@ -66,6 +69,8 @@ bord = pygame.image.load('./n6IaB.jpg').convert()
 bord = pygame.transform.rotate(bord, 90)
 text = basicFont.render('Play', True, RED)
 Monopoly = Largefont.render('Monopoly',True, BLUE)
+player1wint = Largefont.render('Player 1 wint', True, WHITE)
+player2wint = Largefont.render('Player 2 wint', True, WHITE)
 
 dobbelsteen1 = pygame.image.load("./dobbelstenen/dobbelsteen1.PNG").convert()
 dobbelsteen1 = pygame.transform.scale(dobbelsteen1, (100,100))
@@ -82,31 +87,51 @@ dobbelsteen6 = pygame.transform.scale(dobbelsteen6, (100,100))
 
 def get_font(size): # Returns Press-Start-2P in the desired size
     return pygame.font.Font("./font.ttf", size)
-
-def blit_text(surface, text, pos, font, color=pygame.Color('black')):
-    words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
-    space = font.size(' ')[0]  # The width of a space.
-    max_width, max_height = surface.get_size()
-    x, y = pos
-    for line in words:
-        for word in line:
-            word_surface = font.render(word, 0, color)
-            word_width, word_height = word_surface.get_size()
-            if x + word_width >= max_width:
-                x = pos[0]  # Reset the x.
-                y += word_height  # Start on new row.
-            surface.blit(word_surface, (x, y))
-            x += word_width + space
-        x = pos[0]  # Reset the x.
-        y += word_height  # Start on new row.
+def indegevangenis(speler):
+    global tijdingevangenis
+    global player1
+    global player2
+    global indegevangenis1
+    global indegevangenis2
+    global dubbel
+    if(speler == 1):
+        if(tijdingevangenis < 3):
+            if(dubbel == 1):
+                indegevangenis1 = 0
+            else:
+                tijdingevangenis += 1
+        else:
+            player1.money -= 200
+            indegevangenis1 = 0
+    else:
+        if(tijdingevangenis < 3):
+            if(dubbel == 1):
+                indegevangenis2 = 0
+            else:
+                tijdingevangenis += 1
+        else:
+            player2.money -= 200
+            indegevangenis1 = 0
+       
 def naardegevangenis(speler):
     #indegevangenis
     global speler1positie
     global speler2positie
+    global player1, player2
+    global indegevangenis1
+    global indegevangenis2
     if(speler == 1):
         speler1positie = 10
+        player1.x_pos = 50
+        player1.y_pos = 50
+        indegevangenis1 = 1
     elif(speler == 2):
         speler2positie = 10
+        player2.x_pos = 50
+        player1.y_pos = 50
+        indegevangenis2 = 1
+    player1.update(screen)
+    player2.update(screen)
     print("in de gevangenis")
 def algemeenfonds(type):
     global speler1positie
@@ -233,9 +258,6 @@ def kans(type):                # we zouden nog een text moeten tonen van bv. spe
                 player1.money -= 150
             if type == 2:
                 player2.money -= 150
-
-        
-
 def vrijparkeren(player):
     global pot 
     global player1
@@ -249,17 +271,117 @@ def vrijparkeren(player):
 def positie1(gedobbeltnummer):
     global i
     global speler1positie
+    global player1
     if(i == 0):
         speler1positie = gedobbeltnummer
         i = 1
     else:
         speler1positie = gedobbeltnummer + speler1positie
         if (speler1positie >= 40):
+            player1.money += 200
             speler1positie = speler1positie - 40
+        if(speler1positie >= 10):
+            player1.y_pos = 50
+            if(speler1positie == 0):
+                player1.x_pos = 1050
+            elif(speler1positie == 1):
+                player1.x_pos = 950
+            elif(speler1positie == 2):
+                player1.x_pos = 850
+            elif(speler1positie == 3):
+                player1.x_pos = 750
+            elif(speler2positie == 4):
+                player1.x_pos = 650   
+            if(speler1positie == 5):
+                player1.x_pos = 550
+            elif(speler1positie == 6):
+                player1.x_pos = 450
+            elif(speler1positie == 7):
+                player1.x_pos = 350
+            elif(speler1positie == 8):
+                player1.x_pos = 250
+            elif(speler1positie == 9):
+                player1.x_pos = 150 
+            elif(speler1positie == 10):
+                player1.x_pos = 50
+        elif(10 < speler1positie <= 20 ):
+            player1.x_pos = 50
+            if(speler1positie == 10):
+                player1.y_pos = 50
+            elif(speler1positie == 11):
+                player1.y_pos = 150
+            elif(speler1positie ==12):
+                player1.y_pos = 250
+            elif(speler1positie == 13):
+                player1.y_pos = 350
+            elif(speler1positie == 14):
+                player1.y_pos = 450   
+            if(speler1positie == 15):
+                player1.y_pos = 550
+            elif(speler1positie == 16):
+                player1.y_pos = 650
+            elif(speler1positie == 17):
+                player1.y_pos = 750
+            elif(speler1positie == 18):
+                player1.y_pos = 850
+            elif(speler1positie == 19):
+                player1.y_pos = 950 
+            elif(speler1positie == 20):
+                player1.y_pos = 1050
+        elif(20 < speler1positie <= 30):
+            player1.y_pos = 1050
+            if(speler1positie == 20):
+                player1.x_pos = 50
+            elif(speler1positie == 21):
+                player1.x_pos = 150
+            elif(speler1positie == 22):
+                player1.x_pos = 250
+            elif(speler1positie == 23):
+                player1.x_pos = 350
+            elif(speler1positie == 24):
+                player1.x_pos = 450  
+            if(speler1positie == 25):
+                player1.x_pos = 550
+            elif(speler1positie == 26):
+                player1.x_pos = 650
+            elif(speler1positie == 27):
+                player1.x_pos = 750
+            elif(speler1positie == 28):
+                player1.x_pos = 850
+            elif(speler1positie == 29):
+                player1.x_pos = 950 
+            elif(speler1positie == 30):
+                player1.x_pos = 1050
+        else:
+            player1.x_pos = 1050
+            if(speler1positie == 30):
+                player1.y_pos = 1050
+            elif(speler1positie == 31):
+                player1.y_pos = 950
+            elif(speler1positie ==32):
+                player1.y_pos = 850
+            elif(speler1positie == 33):
+                player1.y_pos = 750
+            elif(speler1positie == 34):
+                player1.y_pos = 650  
+            if(speler1positie == 35):
+                player1.y_pos = 550
+            elif(speler1positie == 36):
+                player1.y_pos = 450
+            elif(speler1positie == 37):
+                player1.y_pos = 350
+            elif(speler1positie == 38):
+                player1.y_pos = 250
+            elif(speler1positie == 39):
+                player1.y_pos = 150 
+            elif(speler1positie == 40):
+                player1.y_pos = 50
+    player1.update(screen)
     return speler1positie
 def positie2(gedobbeltnummer):
     global z
     global speler2positie
+    global player2
     if(z == 0):
         speler2positie = gedobbeltnummer
         z = 1
@@ -267,6 +389,108 @@ def positie2(gedobbeltnummer):
         speler2positie = gedobbeltnummer + speler2positie
         if (speler2positie >= 40):
             speler2positie = speler2positie - 40
+            player2.money += 200
+    if(speler2positie >= 10):
+        player2.y_pos = 50
+        if(speler2positie == 0):
+            player2.x_pos = 1050
+        elif(speler2positie == 1):
+            player2.x_pos = 950
+        elif(speler2positie == 2):
+            player2.x_pos = 850
+        elif(speler2positie == 3):
+            player2.x_pos = 750
+        elif(speler2positie == 4):
+            player2.x_pos = 650   
+        if(speler2positie == 5):
+            player2.x_pos = 550
+        elif(speler2positie == 6):
+            player2.x_pos = 450
+        elif(speler2positie == 7):
+            player2.x_pos = 350
+        elif(speler2positie == 8):
+            player2.x_pos = 250
+        elif(speler2positie == 9):
+            player2.x_pos = 150 
+        elif(speler2positie == 10):
+            player2.x_pos = 50
+    elif(10 < speler2positie <= 20 ):
+        player2.x_pos = 50
+        if(speler2positie == 10):
+            player2.y_pos = 50
+        elif(speler2positie == 11):
+            player2.y_pos = 150
+        elif(speler2positie ==12):
+            player2.y_pos = 250
+        elif(speler2positie == 13):
+            player2.y_pos = 350
+        elif(speler2positie == 14):
+            player2.y_pos = 450   
+        if(speler2positie == 15):
+            player2.y_pos = 550
+        elif(speler2positie == 16):
+            player2.y_pos = 650
+        elif(speler2positie == 17):
+            player2.y_pos = 750
+        elif(speler2positie == 18):
+            player2.y_pos = 850
+        elif(speler2positie == 19):
+            player2.y_pos = 950 
+        elif(speler2positie == 20):
+            player2.y_pos = 1050
+    
+    elif(20 < speler2positie <= 30):
+        player2.y_pos = 1050
+        if(speler2positie == 20):
+            player2.x_pos = 50
+        elif(speler2positie == 21):
+            player2.x_pos = 150
+        elif(speler2positie == 22):
+            player2.x_pos = 250
+        elif(speler2positie == 23):
+            player2.x_pos = 350
+        elif(speler2positie == 24):
+            player2.x_pos = 450  
+        if(speler2positie == 25):
+            player2.x_pos = 550
+        elif(speler2positie == 26):
+            player2.x_pos = 650
+        elif(speler2positie == 27):
+            player2.x_pos = 750
+        elif(speler2positie == 28):
+            player2.x_pos = 850
+        elif(speler2positie == 29):
+            player2.x_pos = 950 
+        elif(speler2positie == 30):
+            player2.x_pos = 1050
+    
+    else:
+        player2.x_pos = 1050
+        if(speler2positie == 30):
+            player2.y_pos = 1050
+        elif(speler2positie == 31):
+            player2.y_pos = 950
+        elif(speler2positie ==32):
+            player2.y_pos = 850
+        elif(speler2positie == 33):
+            player2.y_pos = 750
+        elif(speler2positie == 34):
+            player2.y_pos = 650  
+        if(speler2positie == 35):
+            player2.y_pos = 550
+        elif(speler2positie == 36):
+            player2.y_pos = 450
+        elif(speler2positie == 37):
+            player2.y_pos = 350
+        elif(speler2positie == 38):
+            player2.y_pos = 250
+        elif(speler2positie == 39):
+            player2.y_pos = 150 
+        elif(speler2positie == 40):
+            player2.y_pos = 50
+
+    
+    player2.update(screen)
     return speler2positie
 def positiecheck(positie, type, worp):
     #type = 1 speler1
@@ -284,14 +508,6 @@ def positiecheck(positie, type, worp):
     global pot
     if(type == 1 or type == 2):
         if positie == 0:
-            #geld ontvangen 
-            if(type == 1):
-                player1.money += 200
-                player1.x_pos = 1000
-                player1.y_pos = 700
-                player1.update(windowSurface)
-            if(type == 2):
-                player2.money += 200
             return 2
         elif positie == 1:
             if(vakjes[1] == 0):
@@ -1075,18 +1291,17 @@ def positiecheck(positie, type, worp):
         elif(positie == 37):
             player2.money = player2.money - 350
         elif(positie == 39):
-            player2.money = player2.money - 400
-    
+            player2.money = player2.money - 400   
 def dobbelen():
     int1 = random.randint(1,6)
     int2 = random.randint(1,6)
-    global double 
-    double = 0
+    global dubbel 
+    dubbel = 0
     worp = int1 + int2
     if(int1 == int2):
-        double = double + 1
+        dubbel = dubbel + 1
     else:
-        double = 0
+        dubbel = 0
 
     #dobbelsteen 1 op het scherm tonen
     if int1 == 1:
@@ -1116,7 +1331,6 @@ def dobbelen():
     if int2 ==6:
         windowSurface.blit(dobbelsteen6,(450, 400))
     return worp
-
 def Player2():
     windowSurface.fill(WHITE)
     pygame.display.update()
@@ -1125,7 +1339,7 @@ def Player2():
     #init text
     global player1 
     global player2
-    global double
+    global dubbel
     geldplayer1 = smallfont.render("player 1: " + str(player1.money),True, RED)
     geldplayer2 = smallfont.render("player 2: " + str(player2.money),True, BLUE)
     dobbel = Button(button, pos=(width/2, 450), 
@@ -1143,14 +1357,8 @@ def Player2():
         pygame.draw.line(windowSurface, RED,(1150,60),(1350,60),1)
         windowSurface.blit(geldplayer2,(1150,80))
         pygame.draw.line(windowSurface, BLUE,(1150,100),(1350,100),1)
-        player1.x_pos = 1000
-        player1.y_pos = 700
-        player1.update(windowSurface) #zorgt ervoor dat de image van de player getoont wordty   
-        player1.x_pos = 1000
-        player1.y_pos = 700
-        player1.update(windowSurface)
         pygame.display.update()
-        if(player1.money >= 0): 
+        if(player1.money > 0): 
             while aandebeurt == 1:
                 mouse = pygame.mouse.get_pos()
                 pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200, 400, 400,400))
@@ -1164,15 +1372,21 @@ def Player2():
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             if dobbel.checkForInput(mouse):
                                 worp = dobbelen()
-                                if(double == 3):
-                                    naardegevangenis(1)
-                                    algedobbelt = 1
+                                if(indegevangenis1 == 1):
+                                    indegevangenis(1)
                                     aandebeurt = 2
                                 else:
-                                    positiespeler1 = positie1(worp)
-                                    #kankopen 1 kan het worden gekocht anders 2
-                                    kankopen = positiecheck(positiespeler1,1,worp)
-                                    algedobbelt = 1
+                                    if(dubbel == 3):
+                                        naardegevangenis(1)
+                                        algedobbelt = 1
+                                        aandebeurt = 2
+                                        dubbel = 0
+                                    else:
+                                        positiespeler1 = positie1(worp)
+                                        pygame.display.update()
+                                        #kankopen 1 kan het worden gekocht anders 2
+                                        kankopen = positiecheck(positiespeler1,1,worp)
+                                        algedobbelt = 1
                         if event.type == pygame.QUIT:
                                 pygame.quit()
                                 sys.exit()
@@ -1189,7 +1403,7 @@ def Player2():
                             for event in pygame.event.get():
                                 if event.type == pygame.MOUSEBUTTONDOWN:
                                         if volgende.checkForInput(mouse):
-                                            if(double == 1 or double == 2):
+                                            if(dubbel == 1 or dubbel == 2):
                                                 aandebeurt = 1
                                                 algedobbelt = 0
                                                 kankopen = 0
@@ -1212,7 +1426,7 @@ def Player2():
                             for event in pygame.event.get():
                                 if event.type == pygame.MOUSEBUTTONDOWN:
                                     if volgende.checkForInput(mouse):
-                                        if(double == 1 or double == 2):
+                                        if(dubbel == 1 or dubbel == 2):
                                             aandebeurt = 1
                                             algedobbelt = 0
                                         else:
@@ -1224,7 +1438,15 @@ def Player2():
                 pygame.display.update()
         else:
             print("player 2 wins")
-            sys.exit()
+            windowSurface.fill(BLACK)
+            while True:
+                windowSurface.blit(player2wint,(width/2-200, height/2))
+                mouse = pygame.mouse.get_pos()
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        sys.exit()
+                pygame.display.update()
         #player two
         #update Players money
         windowSurface.blit(geldplayer1,(1150,40))
@@ -1246,12 +1468,13 @@ def Player2():
                         if event.type == pygame.MOUSEBUTTONDOWN:
                             if dobbel.checkForInput(mouse):
                                 worp = dobbelen()
-                                if(double == 3):
+                                if(dubbel == 3):
                                     naardegevangenis(2)
                                     algedobbelt = 1
                                     aandebeurt = 1
                                 else:
                                     positiespeler2 = positie2(worp)
+                                    pygame.display.update()
                                     #kankopen 1 kan worden gekocht anders 2
                                     kankopen = positiecheck(positiespeler2,1,worp)
                                     algedobbelt = 1
@@ -1271,7 +1494,7 @@ def Player2():
                             for event in pygame.event.get():
                                 if event.type == pygame.MOUSEBUTTONDOWN:
                                         if volgende.checkForInput(mouse):
-                                            if(double == 1 or double == 2):
+                                            if(dubbel == 1 or dubbel == 2):
                                                 aandebeurt = 2
                                                 algedobbelt = 0
                                                 kankopen = 0
@@ -1293,7 +1516,7 @@ def Player2():
                             for event in pygame.event.get():
                                 if event.type == pygame.MOUSEBUTTONDOWN:
                                         if volgende.checkForInput(mouse):
-                                            if(double == 1 or double == 2):
+                                            if(dubbel == 1 or dubbel == 2):
                                                 aandebeurt = 2
                                                 algedobbelt = 0
                                             else:
@@ -1303,9 +1526,17 @@ def Player2():
                                         pygame.quit()
                                         sys.exit()
                 pygame.display.update()
-            else:
-                print("player 1 wint")
-                sys.exit()
+        else:
+            print("player 1 wins")
+            windowSurface.fill(BLACK)
+            while True:
+                windowSurface.blit(player1wint,(width/2-200, height/2))
+                mouse = pygame.mouse.get_pos()
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        sys.exit()
+                pygame.display.update()
 def Player3():
     windowSurface.fill(WHITE)
     pygame.display.update()
@@ -1314,7 +1545,6 @@ def Player4():
     windowSurface.fill(WHITE)
     pygame.display.update()
     print("player 4")
-    
 def next():
     windowSurface.fill(BLACK)
     windowSurface.blit(moneybag,(width-300,100))
@@ -1350,7 +1580,6 @@ def next():
                     Player4()
 
         pygame.display.update()
-
 def mainmenu():
     windowSurface.fill(BLACK)
     windowSurface.blit(moneybag,(width-300,100))
@@ -1381,5 +1610,4 @@ def mainmenu():
                     pygame.quit()
                     sys.exit()
         pygame.display.update() 
-
 mainmenu()
