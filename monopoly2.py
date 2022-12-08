@@ -287,7 +287,7 @@ def positie1(gedobbeltnummer):
         if (speler1positie >= 40):
             player1.money += 200
             speler1positie = speler1positie - 40
-    if(speler1positie >= 10):
+    if(speler1positie <= 10):
         player1.y_pos = 750
         if(speler1positie == 0):
             player1.x_pos = 750
@@ -399,7 +399,7 @@ def positie2(gedobbeltnummer):
         if (speler2positie >= 40):
             speler2positie = speler2positie - 40
             player2.money += 200
-    if(speler2positie >= 10):
+    if(speler2positie <= 10):
         player2.y_pos = 750
         if(speler2positie == 0):
             player2.x_pos = 750
@@ -1395,7 +1395,12 @@ def Player2():
                                     else:
                                         positiespeler1 = positie1(worp)
                                         pygame.display.update()
-                                        print(player1.x_pos)
+                                        player1.update(windowSurface)
+                                        player2.update(windowSurface)
+                                        print("player1_xpos = " + str(player1.x_pos))
+                                        print("player1_ypos = " + str(player1.y_pos))
+                                        print("player2_xpos = " + str(player2.x_pos))
+                                        print("player2_ypos = " + str(player2.y_pos))
                                         #kankopen 1 kan het worden gekocht anders 2
                                         kankopen = positiecheck(positiespeler1,1,worp)
                                         algedobbelt = 1
@@ -1489,6 +1494,10 @@ def Player2():
                                 else:
                                     positiespeler2 = positie2(worp)
                                     pygame.display.update()
+                                    print("player1_xpos = " + str(player1.x_pos))
+                                    print("player1_ypos = " + str(player1.y_pos))
+                                    print("player2_xpos = " + str(player2.x_pos))
+                                    print("player2_ypos = " + str(player2.y_pos))
                                     #kankopen 1 kan worden gekocht anders 2
                                     kankopen = positiecheck(positiespeler2,1,worp)
                                     algedobbelt = 1

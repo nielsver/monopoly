@@ -14,7 +14,7 @@ class player():
         self.rect = self.image.get_rect(center=(self.x_pos, self.y_pos))
 
     def update(self, screen):
-        screen.blit(self.image,self.rect)
+        screen.blit(self.image,(self.x_pos, self.y_pos))
         
     
         
