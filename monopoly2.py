@@ -297,23 +297,23 @@ def positie1(gedobbeltnummer):
         if(speler1positie == 0):
             player1.x_pos = 750
         elif(speler1positie == 1):
-            player1.x_pos = 682
+            player1.x_pos = 647
         elif(speler1positie == 2):
-             player1.x_pos = 616
+             player1.x_pos = 581
         elif(speler1positie == 3):
-             player1.x_pos = 550
+             player1.x_pos = 514
         elif(speler2positie == 4):
-             player1.x_pos = 484
+             player1.x_pos = 442
         elif(speler1positie == 5):
-             player1.x_pos = 418
+             player1.x_pos = 379
         elif(speler1positie == 6):
-             player1.x_pos = 352
+             player1.x_pos = 314
         elif(speler1positie == 7):
-            player1.x_pos = 286
+            player1.x_pos = 247
         elif(speler1positie == 8):
-             player1.x_pos = 220
+             player1.x_pos = 187
         elif(speler1positie == 9):
-             player1.x_pos = 154
+             player1.x_pos = 120
         elif(speler1positie == 10):
             player1.x_pos = 50
     elif(10 < speler1positie <= 20 ):
@@ -392,6 +392,7 @@ def positie1(gedobbeltnummer):
     pygame.display.update()
     windowSurface.blit(bord,(0,0))
     player1.update(windowSurface)
+    player2.update(windowSurface)
     pygame.display.update()
     pygame.display.flip()
     return speler1positie
@@ -412,23 +413,23 @@ def positie2(gedobbeltnummer):
         if(speler2positie == 0):
             player2.x_pos = 750
         elif(speler2positie == 1):
-            player2.x_pos = 682
+            player2.x_pos = 647
         elif(speler2positie == 2):
-             player2.x_pos = 616
+             player2.x_pos = 581
         elif(speler2positie == 3):
-             player2.x_pos = 550
+             player2.x_pos = 514
         elif(speler2positie == 4):
-             player2.x_pos = 484
+             player2.x_pos = 442
         elif(speler2positie == 5):
-             player2.x_pos = 418
+             player2.x_pos = 379
         elif(speler2positie == 6):
-             player2.x_pos = 352
+             player2.x_pos = 314
         elif(speler2positie == 7):
-            player2.x_pos = 286
+            player2.x_pos = 247
         elif(speler2positie == 8):
-             player2.x_pos = 220
+             player2.x_pos = 187
         elif(speler2positie == 9):
-             player2.x_pos = 154
+             player2.x_pos = 120
         elif(speler2positie == 10):
             player2.x_pos = 50
     elif(10 < speler2positie <= 20 ):
@@ -508,6 +509,7 @@ def positie2(gedobbeltnummer):
     pygame.display.update()
     windowSurface.blit(bord,(0,0))
     player2.update(windowSurface)
+    player1.update(windowSurface)
     pygame.display.update()
     pygame.display.flip()
     return speler2positie
