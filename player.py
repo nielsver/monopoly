@@ -2,7 +2,6 @@ import pygame
 from string import capwords
 
 
-
 class player():
     def __init__(self, image, x_pos, y_pos, money, cards, name):
         self.image = image

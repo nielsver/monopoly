@@ -71,6 +71,8 @@ button=pygame.image.load("button.png").convert()
 button = pygame.transform.scale(button, (200,50))
 bord = pygame.image.load('./n6IaB.jpg').convert()
 bord = pygame.transform.rotate(bord, 90)
+construction = pygame.image.load('./UnderConstruct.jpg').convert()
+
 text = basicFont.render('Play', True, RED)
 Monopoly = Largefont.render('Monopoly',True, BLUE)
 player1wint = Largefont.render('Player 1 wint', True, WHITE)
@@ -135,6 +137,9 @@ def naardegevangenis(speler):
         player2.x_pos = 50
         player1.y_pos = 750
         indegevangenis2 = 1
+    windowSurface.fill(WHITE)
+    pygame.display.update()
+    windowSurface.blit(bord,(0,0))    
     player1.update(windowSurface)
     player2.update(windowSurface)
     pygame.display.update()
@@ -383,6 +388,9 @@ def positie1(gedobbeltnummer):
              player1.y_pos = 682 
         elif(speler1positie == 40):
                 player1.y_pos = 750
+    windowSurface.fill(WHITE)
+    pygame.display.update()
+    windowSurface.blit(bord,(0,0))
     player1.update(windowSurface)
     pygame.display.update()
     pygame.display.flip()
@@ -496,7 +504,9 @@ def positie2(gedobbeltnummer):
         elif(speler2positie == 40):
                 player2.y_pos = 750
 
-    
+    windowSurface.fill(WHITE)
+    pygame.display.update()
+    windowSurface.blit(bord,(0,0))
     player2.update(windowSurface)
     pygame.display.update()
     pygame.display.flip()
@@ -1561,13 +1571,51 @@ def Player2():
                         sys.exit()
                 pygame.display.update()
 def Player3():
-    windowSurface.fill(WHITE)
+    windowSurface.fill(BLACK)
+    backbutton = Button(button, pos=(width/2, 700), 
+                        text_input="BACK", font=get_font(20), base_color=WHITE, hovering_color=RED)
     pygame.display.update()
-    print("player 3")
+    windowSurface.blit(construction,(width/2 -300, height/2-300))
+    while True:
+        mouse = pygame.mouse.get_pos()
+        for btn in [backbutton]:
+            btn.changeColor(mouse)
+            btn.update(windowSurface)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if backbutton.checkForInput(mouse):
+                    next()
+
+
+        pygame.display.update()
 def Player4():
-    windowSurface.fill(WHITE)
+    windowSurface.fill(BLACK)
+    backbutton = Button(button, pos=(width/2, 700), 
+                        text_input="BACK", font=get_font(20), base_color=WHITE, hovering_color=RED)
     pygame.display.update()
-    print("player 4")
+    windowSurface.blit(construction,(width/2 -300, height/2-300))
+    while True:
+        mouse = pygame.mouse.get_pos()
+        for btn in [backbutton]:
+            btn.changeColor(mouse)
+            btn.update(windowSurface)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if backbutton.checkForInput(mouse):
+                    next()
+
+
+        pygame.display.update()
+
+    
 def next():
     windowSurface.fill(BLACK)
     windowSurface.blit(moneybag,(width-300,100))
