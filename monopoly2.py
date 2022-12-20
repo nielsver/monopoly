@@ -88,8 +88,8 @@ min25 = smallfont.render("Je verliest met poker: min 25",True, BLACK)
 min50 = smallfont.render("Je verliest je portefeuille: min 50",TRUE, BLACK)
 min100 = smallfont.render("Betrapt op geld witwassen boete: min 100",TRUE,BLACK)
 min150 = smallfont.render("Je word overvallen: min 150",True,BLACK)
-pos5 = smallfont.render("Je rijd electrische: 5 plaatsen vooruit",True, BLACK)
-pos10 = smallfont.render("Je kent iemand bij de luchthaven: 10 plaatsen vooruit",True, BLACK)
+pos5 = smallfont.render("Je rijd electrisch: 5 plaatsen vooruit",True, BLACK)
+pos10 = smallfont.render("Je krijgt een lift: 10 plaatsen vooruit",True, BLACK)
 pos2 = smallfont.render("Je kan carpoolen: 2 plaatsen vooruit",True, BLACK)
 pos12 = smallfont.render("Je vliegt privé: 12 plaatsen vooruit",True, BLACK)
 posmin5 = smallfont.render("opslag benzine prijzen: 5 plaatsen terug",True, BLACK)
@@ -104,6 +104,63 @@ player1wint = Largefont.render('Player 1 wint', True, WHITE)
 player2wint = Largefont.render('Player 2 wint', True, WHITE)
 beurt1 = smallfont.render("speler 1 aan de beurt", True,WHITE)
 beurt2 = smallfont.render("speler 2 is aan de beurt", True, WHITE)
+player1start = smallfont.render("player 1 komt voorbij start: +200",True, BLACK)
+player2start = smallfont.render("player 2 komt voorbij start: +200",True, BLACK)
+p1get10 = smallfont.render('player 1 kijgt 10 van player 2',TRUE,BLACK)
+p1get20 = smallfont.render('player 1 kijgt 20 van player 2',TRUE,BLACK)
+p1get30 = smallfont.render('player 1 kijgt 30 van player 2',TRUE,BLACK)
+p1get40 = smallfont.render('player 1 kijgt 40 van player 2',TRUE,BLACK)
+p1get50 = smallfont.render('player 1 kijgt 50 van player 2',TRUE,BLACK)
+p1get60 = smallfont.render('player 1 kijgt 60 van player 2',TRUE,BLACK)
+p1get70 = smallfont.render('player 1 kijgt 70 van player 2',TRUE,BLACK)
+p1get80 = smallfont.render('player 1 kijgt 80 van player 2',TRUE,BLACK)
+p1get90 = smallfont.render('player 1 kijgt 90 van player 2',TRUE,BLACK)
+p1get100 = smallfont.render('player 1 kijgt 100 van player 2',TRUE,BLACK)
+p1get110 = smallfont.render('player 1 kijgt 110 van player 2',TRUE,BLACK)
+p1get120 = smallfont.render('player 1 kijgt 120 van player 2',TRUE,BLACK)
+p1get130 = smallfont.render('player 1 kijgt 130 van player 2',TRUE,BLACK)
+p1get150 = smallfont.render('player 1 kijgt 150 van player 2',TRUE,BLACK)
+p1get175 = smallfont.render('player 1 kijgt 175 van player 2',TRUE,BLACK)
+p1get200 = smallfont.render('player 1 kijgt 200 van player 2',TRUE,BLACK)
+
+p2get10 = smallfont.render('player 2 kijgt 10 van player 1',TRUE,BLACK)
+p2get20 = smallfont.render('player 2 kijgt 20 van player 1',TRUE,BLACK)
+p2get30 = smallfont.render('player 2 kijgt 30 van player 1',TRUE,BLACK)
+p2get40 = smallfont.render('player 2 kijgt 40 van player 1',TRUE,BLACK)
+p2get50 = smallfont.render('player 2 kijgt 50 van player 1',TRUE,BLACK)
+p2get60 = smallfont.render('player 2 kijgt 60 van player 1',TRUE,BLACK)
+p2get70 = smallfont.render('player 2 kijgt 70 van player 1',TRUE,BLACK)
+p2get80 = smallfont.render('player 2 kijgt 80 van player 1',TRUE,BLACK)
+p2get90 = smallfont.render('player 2 kijgt 90 van player 1',TRUE,BLACK)
+p2get100 = smallfont.render('player 2 kijgt 100 van player 1',TRUE,BLACK)
+p2get110 = smallfont.render('player 2 kijgt 110 van player 1',TRUE,BLACK)
+p2get120 = smallfont.render('player 2 kijgt 120 van player 1',TRUE,BLACK)
+p2get130 = smallfont.render('player 2 kijgt 130 van player 1',TRUE,BLACK)
+p2get150 = smallfont.render('player 2 kijgt 150 van player 1',TRUE,BLACK)
+p2get175 = smallfont.render('player 2 kijgt 175 van player 1',TRUE,BLACK)
+p2get200 = smallfont.render('player 2 kijgt 200 van player 1',TRUE,BLACK)
+
+kost60 = smallfont.render('dit kan je kopen voor 60',TRUE,BLACK)
+kost100 = smallfont.render('dit kan je kopen voor 100',TRUE,BLACK)
+kost120 = smallfont.render('dit kan je kopen voor 120',TRUE,BLACK)
+kost140 = smallfont.render('dit kan je kopen voor 140',TRUE,BLACK)
+kost150 = smallfont.render('dit kan je kopen voor 150',TRUE,BLACK)
+kost160 = smallfont.render('dit kan je kopen voor 160',TRUE,BLACK)
+kost180 = smallfont.render('dit kan je kopen voor 180',TRUE,BLACK)
+kost200 = smallfont.render('dit kan je kopen voor 200',TRUE,BLACK)
+kost220 = smallfont.render('dit kan je kopen voor 220',TRUE,BLACK)
+kost240 = smallfont.render('dit kan je kopen voor 240',TRUE,BLACK)
+kost260 = smallfont.render('dit kan je kopen voor 260',TRUE,BLACK)
+kost280 = smallfont.render('dit kan je kopen voor 280',TRUE,BLACK)
+kost300 = smallfont.render('dit kan je kopen voor 300',TRUE,BLACK)
+kost320 = smallfont.render('dit kan je kopen voor 320',TRUE,BLACK)
+kost350 = smallfont.render('dit kan je kopen voor 350',TRUE,BLACK)
+kost400 = smallfont.render('dit kan je kopen voor 400',TRUE,BLACK)
+
+
+
+
+
 
 #dobbelstenen
 
@@ -148,10 +205,10 @@ def indegevangenis(speler):
         else:
             player2.money -= 200
             indegevangenis1 = 0
-    windowSurface.blit(gevangengen,(width/2+250,250))
+    windowSurface.blit(gevangengen,(width/2+250,320))
     pygame.display.update()
        
-def naardegevangenis(speler):
+def naardegevangenis(speler): #je print naardegevangeis af op width/2+250, 320
     #indegevangenis
     global speler1positie
     global speler2positie
@@ -173,12 +230,12 @@ def naardegevangenis(speler):
     windowSurface.blit(bord,(0,0))    
     player1.update(windowSurface)
     player2.update(windowSurface)
-    windowSurface.blit(naargevangen,(width/2+250,250))
+    windowSurface.blit(naargevangen,(width/2+250,320))
     
     pygame.display.update()
     pygame.display.flip()
     print("in de gevangenis")
-def algemeenfonds(type):
+def algemeenfonds(type): #wordt afgepritn op width/2+250, 300
     global speler1positie
     global speler2positie
     #algemeenfonds
@@ -197,82 +254,84 @@ def algemeenfonds(type):
         if kansint == x:
             if type == 1:
                 speler1positie += 5
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 windowSurface.blit(pos5,(width/2+250, 300))
+                pygame.display.update()
             if type == 2:
                 speler2positie += 5
                 windowSurface.blit(pos5,(width/2+250, 300))
+                pygame.display.update()
     for x in list2:
         if kansint == x:
             if type == 1:
                 speler1positie += 10
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 windowSurface.blit(pos10,(width/2+250, 300))
+                pygame.display.update()
             if type == 2:
                 speler2positie += 10
-                windowSurface.blit(pos10,(width/2+250, 250))
+                windowSurface.blit(pos10,(width/2+250, 300))
+                pygame.display.update()
     for x in list3:
         if kansint == x:
             if type == 1:
                 speler1positie += 2
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 windowSurface.blit(pos2,(width/2+250, 300))
+                pygame.display.update()
             if type == 2:
                 speler2positie += 2
-                windowSurface.blit(pos2,(width/2+250, 250))
+                windowSurface.blit(pos2,(width/2+250, 300))
+                pygame.display.update()
+
     for x in list4:
         if kansint == x:
             if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))               
+              
                 speler1positie += 12
                 windowSurface.blit(pos12,(width/2+250, 300))
+                pygame.display.update()
             if type == 2:
                 speler2positie += 12
-                windowSurface.blit(pos12,(width/2+250, 250))
+                windowSurface.blit(pos12,(width/2+250, 300))
+                pygame.display.update()
     for x in list5:
         if kansint == x:
-            if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))                
+            if type == 1:               
                 speler1positie -= 5
                 windowSurface.blit(posmin5,(width/2+250, 300))
+                pygame.display.update()
             if type == 2:
                 speler2positie -= 5
-                windowSurface.blit(posmin5,(width/2+250, 250))
+                windowSurface.blit(posmin5,(width/2+250, 300))
+                pygame.display.update()
     for x in list6:
         if kansint == x:
             if type == 1:
-                speler1positie -= 10
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))                
+                speler1positie -= 10               
                 windowSurface.blit(posmin10,(width/2+250, 300))
+                pygame.display.update()
             if type == 2:
                 speler2positie -= 10
-                windowSurface.blit(posmin10,(width/2+250, 250))
+                windowSurface.blit(posmin10,(width/2+250, 300))
+                pygame.display.update()
     for x in list7:
         if kansint == x:
             if type == 1:
-                speler1positie -= 2
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))  
+                speler1positie -= 2 
                 windowSurface.blit(posmin2,(width/2+250, 300))
+                pygame.display.update()
             if type == 2:
                 speler2positie -= 2
-                windowSurface.blit(posmin2,(width/2+250, 250))
+                windowSurface.blit(posmin2,(width/2+250, 300))
+                pygame.display.update()
     for x in list8:
         if kansint == x:
             if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))  
                 speler1positie -= 12
-                windowSurface.blit(posmin12,(width/2+250, 300))
+                windowSurface.blit(posmin12,(width/2+250, 250))
+                pygame.display.update()
             if type == 2:
                 speler2positie -= 12
-                windowSurface.blit(posmin12,(width/2+250, 250))
+                windowSurface.blit(posmin12,(width/2+250, 300))
+                pygame.display.update()
 
     pygame.display.update()    
     print("algemeenfonds")
@@ -291,95 +350,81 @@ def kans(type):
         if kansint == x:
             if type == 1:
                 player1.money += 50
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 windowSurface.blit(plus50,(width/2+250, 300))
             if type == 2:
                 player2.money += 50
-                windowSurface.blit(plus50,(width/2+250, 250))
+                windowSurface.blit(plus50,(width/2+250, 300))
     for x in list2:
         if kansint == x:
             if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money += 25
                 windowSurface.blit(plus25,(width/2+250, 300))
             if type == 2:
                 
                 player2.money += 25
-                windowSurface.blit(plus25,(width/2+250, 250))
+                windowSurface.blit(plus25,(width/2+250, 300))
     for x in list3:
         if kansint == x:
             if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money += 100
                 windowSurface.blit(plus100,(width/2+250, 300))
             if type == 2:
                 player2.money += 100
-                windowSurface.blit(plus100,(width/2+250, 250))
+                windowSurface.blit(plus100,(width/2+250, 300))
     for x in list4:
         if kansint == x:
             if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money += 150
                 windowSurface.blit(plus150,(width/2+250, 300))
             if type == 2:
                 player2.money += 150
-                windowSurface.blit(plus150,(width/2+250, 250))
+                windowSurface.blit(plus150,(width/2+250, 300))
     for x in list5:
         if kansint == x:
             if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money -= 50
                 windowSurface.blit(min50,(width/2+250, 300))
             if type == 2:
                 player2.money -= 50
-                windowSurface.blit(min50,(width/2+250, 250))
+                windowSurface.blit(min50,(width/2+250, 300))
     for x in list6:
         if kansint == x:
             if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money -= 25
                 windowSurface.blit(min25,(width/2+250, 300))
             if type == 2:
                 player2.money -= 25
-                windowSurface.blit(min25,(width/2+250, 250))
+                windowSurface.blit(min25,(width/2+250, 300))
     for x in list7:
         if kansint == x:
             if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money -= 100
                 windowSurface.blit(min100,(width/2+250, 300))
             if type == 2:
                 player2.money -= 100
-                windowSurface.blit(min100,(width/2+250, 250))
+                windowSurface.blit(min100,(width/2+250, 300))
     for x in list8:
         if kansint == x:
             if type == 1:
-                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
-                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money -= 150
                 windowSurface.blit(min150,(width/2+250, 300))
             if type == 2:
                 player2.money -= 150
-                windowSurface.blit(min150,(width/2+250, 250))
+                windowSurface.blit(min150,(width/2+250, 300))
     pygame.display.update()
-def vrijparkeren(player):
-    global pot 
+def vrijparkeren(player): #je print de pot af op width/2+250, 320    global pot 
     global player1
     global player2
+    wintpot = smallfont.render("Je wint de pot: +" + str(pot),True,BLACK)
     if(player == 1):
         player1.money = player1.money + pot
         pot = 0
     if(player == 2):
         player2.money = player2.money + pot
+    windowSurface.blit(wintpot,(width/2+250, 320))
+    pygame.display.update()
     print("vrijparkeren")
-def positie1(gedobbeltnummer):
+def positie1(gedobbeltnummer): #wordt afgeprint op width/2+200,340
     global i
     global speler1positie
     global player1
@@ -391,6 +436,7 @@ def positie1(gedobbeltnummer):
         if (speler1positie >= 40):
             player1.money += 200
             speler1positie = speler1positie - 40
+            windowSurface.blit(player1start,(width/2+200, 340))
     if(speler1positie <= 10):
         player1.y_pos = 750
         if(speler1positie == 0):
@@ -412,7 +458,7 @@ def positie1(gedobbeltnummer):
         elif(speler1positie == 8):
              player1.x_pos = 187
         elif(speler1positie == 9):
-             player1.x_pos = 120
+             player1.x_pos = 130 #changed
         elif(speler1positie == 10):
             player1.x_pos = 50
     elif(10 < speler1positie <= 20 ):
@@ -420,11 +466,11 @@ def positie1(gedobbeltnummer):
         if(speler1positie == 10):
                 player1.y_pos = 750
         elif(speler1positie == 11):
-                player1.y_pos = 680
+                player1.y_pos = 650 #changed
         elif(speler1positie ==12):
                 player1.y_pos = 610
         elif(speler1positie == 13):
-                player1.y_pos = 540
+                player1.y_pos = 520
         elif(speler1positie == 14):
                 player1.y_pos = 470
         elif(speler1positie == 15):
@@ -434,9 +480,9 @@ def positie1(gedobbeltnummer):
         elif(speler1positie == 17):
                 player1.y_pos = 260
         elif(speler1positie == 18):
-                player1.y_pos = 90
+                player1.y_pos = 190 
         elif(speler1positie == 19):
-                player1.y_pos = 120
+                player1.y_pos = 130 #changed 
         elif(speler1positie == 20):
                 player1.y_pos = 50
     elif(20 < speler1positie <= 30):
@@ -480,7 +526,7 @@ def positie1(gedobbeltnummer):
         elif(speler1positie == 36):
             player1.y_pos = 470
         elif(speler1positie == 37):
-             player1.y_pos = 540
+             player1.y_pos = 560
         elif(speler1positie == 38):
             player1.y_pos = 610
         elif(speler1positie == 39):
@@ -507,6 +553,7 @@ def positie2(gedobbeltnummer):
         if (speler2positie >= 40):
             speler2positie = speler2positie - 40
             player2.money += 200
+            windowSurface.blit(player2start,(width/2+200, 340))
     if(speler2positie <= 10):
         player2.y_pos = 750
         if(speler2positie == 0):
@@ -536,7 +583,7 @@ def positie2(gedobbeltnummer):
         if(speler2positie == 10):
                 player2.y_pos = 750
         elif(speler2positie == 11):
-                player2.y_pos = 680
+                player2.y_pos = 650 #changed
         elif(speler2positie ==12):
                 player2.y_pos = 610
         elif(speler2positie == 13):
@@ -637,12 +684,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money -= 10
                     player1.money += 10
+                    windowSurface.blit(p1get10,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[1] == 2):
                 if(type == 1):
                     #betalen
                     player1.money -= 10
                     player2.money += 10
+                    windowSurface.blit(p2get10,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 2:
             #algemeen fonds
@@ -659,12 +710,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money += 20
                     player1.money += 20
+                    windowSurface.blit(p1get20,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[3] == 2):
                 if(type == 1):
                     #betalen
                     player1.money -= 20
                     player2.money += 20
+                    windowSurface.blit(p2get20,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 4:
             #taxen betalen
@@ -736,12 +791,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money -= 30
                     player1.money += 30
+                    windowSurface.blit(p1get30,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[6] == 2):
                 if(type == 1):
                     #betalen
                     player1.money -= 30
                     player2.money += 30
+                    windowSurface.blit(p2get30,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 7:
             #kans
@@ -758,12 +817,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money -= 30
                     player1.money += 30
+                    windowSurface.blit(p1get30,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[8] == 2):
                 if(type == 1):
                     #betalen
                     player1.money -= 30
                     player2.money += 30
+                    windowSurface.blit(p2get30,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 9:
             if(vakjes[9] == 0):
@@ -773,12 +836,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money -= 40
                     player1.money += 40
+                    windowSurface.blit(p1get40,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[9] == 2):
                 if(type == 1):
                     #betalen
                     player1.money -= 40
                     player2.money += 40
+                    windowSurface.blit(p2get40,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 10:
             #op bezoek
@@ -792,16 +859,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 50
                     player1.money = player1.money + 50
-                    print(player1.money)
-                    print(player2.money)
+                    windowSurface.blit(p1get50,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[11] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 50
                     player2.money = player2.money + 50
-                    print(player1.money)
-                    print(player2.money)
+                    windowSurface.blit(p2get50,(width/2+250,300))
+                    pygame.display.update()
                     return 2
 
         elif positie == 12:
@@ -836,12 +903,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 50
                     player1.money = player1.money + 50
+                    windowSurface.blit(p1get50,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[13] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 50
                     player2.money = player2.money + 50
+                    windowSurface.blit(p2get50,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 14:
             if(vakjes[14] == 0):
@@ -851,12 +922,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 60
                     player1.money = player1.money + 60
+                    windowSurface.blit(p1get60,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[14] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 60
                     player2.money = player2.money + 60
+                    windowSurface.blit(p2get60,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 15:
             #kijken welke andere vakjes de speler nog heeft
@@ -918,12 +993,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 70
                     player1.money = player1.money + 70
+                    windowSurface.blit(p1get70,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[16] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 70
                     player2.money = player2.money + 70
+                    windowSurface.blit(p2get70,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 17:
             #algemeen fonds
@@ -940,12 +1019,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 70
                     player1.money = player1.money + 70
+                    windowSurface.blit(p1get70,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[18] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 70
                     player2.money = player2.money + 70
+                    windowSurface.blit(p2get70,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 19:
             if(vakjes[19] == 0):
@@ -955,12 +1038,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 80
                     player1.money = player1.money + 80
+                    windowSurface.blit(p1get80,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[19] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 80
                     player2.money = player2.money + 80
+                    windowSurface.blit(p2get80,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 20:
             #vrij parkeren
@@ -977,12 +1064,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 90
                     player1.money = player1.money + 90
+                    windowSurface.blit(p1get90,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[21] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 90
                     player2.money = player2.money + 90
+                    windowSurface.blit(p2get90,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 22:
             #kans
@@ -999,12 +1090,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 90
                     player1.money = player1.money + 90
+                    windowSurface.blit(p1get90,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[23] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 90
                     player2.money = player2.money + 90
+                    windowSurface.blit(p2get90,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 24:
             if(vakjes[24] == 0):
@@ -1014,12 +1109,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 100
                     player1.money = player1.money + 100
+                    windowSurface.blit(p1get100,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[24] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 100
                     player2.money = player2.money + 100
+                    windowSurface.blit(p2get100,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 25:
             #kijken welke andere vakjes in bezit van speler zijn
@@ -1081,12 +1180,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 110
                     player1.money = player1.money + 110
+                    windowSurface.blit(p1get110,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[26] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money -110
                     player2.money = player2.money + 110
+                    windowSurface.blit(p2get110,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 27:
             if(vakjes[27] == 0):
@@ -1096,12 +1199,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 110
                     player1.money = player1.money + 110
+                    windowSurface.blit(p1get110,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[27] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 110
                     player2.money = player2.money + 110
+                    windowSurface.blit(p2get110,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 28:
             #kijken welke andere kaarten in bezit zijn speler
@@ -1135,12 +1242,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 120
                     player1.money = player1.money + 120
+                    windowSurface.blit(p1get120,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[29] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 120
                     player2.money = player2.money + 120
+                    windowSurface.blit(p2get120,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 30:
             #naar de gevangenis
@@ -1154,12 +1265,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 130
                     player1.money = player1.money + 130
+                    windowSurface.blit(p1get130,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[31] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 130
                     player2.money = player2.money + 130
+                    windowSurface.blit(p2get130,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 32:
             if(vakjes[32] == 0):
@@ -1168,13 +1283,17 @@ def positiecheck(positie, type, worp):
                 if(type == 2):
                     #betalen
                     player2.money = player2.money - 130
-                    player1.money + 130
+                    player1.money += 130
+                    windowSurface.blit(p1get130,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[32] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 130
                     player2.money = player2.money + 130
+                    windowSurface.blit(p1get40,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 33:
             #algemeen fonds
@@ -1191,12 +1310,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 150
                     player1.money = player1.money + 150
+                    windowSurface.blit(p1get50,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[34] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 150
                     player2.money = player2.money + 150
+                    windowSurface.blit(p2get150,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 35:
             #kijken hoeveel vakjes er van in bezit zijn
@@ -1265,12 +1388,16 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 175
                     player1.money = player1.money + 175
+                    windowSurface.blit(p1get175,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[37] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 175
                     player2.money = player2.money + 175
+                    windowSurface.blit(p2get175,(width/2+250,300))
+                    pygame.display.update()
                     return 2
         elif positie == 38:
             #supertax
@@ -1289,129 +1416,245 @@ def positiecheck(positie, type, worp):
                     #betalen
                     player2.money = player2.money - 200
                     player1.money = player1.money + 200
+                    windowSurface.blit(p1get200,(width/2+250,300))
+                    pygame.display.update()
                     return 2
             elif(vakjes[39] == 2):
                 if(type == 1):
                     #betalen
                     player1.money = player1.money - 200
                     player2.money = player2.money + 200
+                    windowSurface.blit(p2get200,(width/2+250,300))
+                    pygame.display.update()
                     return 2
     elif(type == 3):
         vakjes[positie] = 1
         if(positie == 1):
             player1.money = player1.money - 60
+            windowSurface.blit(kost60,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 3):
             player1.money = player1.money - 60
+            windowSurface.blit(kost60,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 5):
             player1.money = player1.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 6):
             player1.money = player1.money - 100
+            windowSurface.blit(kost100,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 8):
             player1.money = player1.money - 100
+            windowSurface.blit(kost100,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 9):
             player1.money = player1.money - 120
+            windowSurface.blit(kost120,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 11):
             player1.money = player1.money - 140
+            windowSurface.blit(kost140,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 12):
             player1.money = player1.money - 150
+            windowSurface.blit(kost150,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 13):
             player1.money = player1.money - 140
+            windowSurface.blit(kost140,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 14):
             player1.money = player1.money - 160
+            windowSurface.blit(kost160,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 15):
             player1.money = player1.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 16):
             player1.money = player1.money - 180
+            windowSurface.blit(kost180,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 18):
             player1.money = player1.money - 180
+            windowSurface.blit(kost180,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 19):
             player1.money = player1.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 21):
             player1.money = player1.money - 220
+            windowSurface.blit(kost220,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 23):
             player1.money = player1.money - 220
+            windowSurface.blit(kost220,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 24):
             player1.money = player1.money - 240
+            windowSurface.blit(kost240,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 25):
             player1.money = player1.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 26):
             player1.money = player1.money - 260
+            windowSurface.blit(kost260,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 27):
             player1.money = player1.money - 260
+            windowSurface.blit(kost260,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 28):
             player1.money = player1.money - 150
+            windowSurface.blit(kost150,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 29):
             player1.money = player1.money - 280
+            windowSurface.blit(kost280,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 31):
             player1.money = player1.money - 300
+            windowSurface.blit(kost300,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 32):
             player1.money = player1.money - 300
+            windowSurface.blit(kost300,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 34):
             player1.money = player1.money - 320
+            windowSurface.blit(kost320,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 35):
             player1.money = player1.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 37):
             player1.money = player1.money - 350
+            windowSurface.blit(kost350,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 39):
             player1.money = player1.money - 400
+            windowSurface.blit(kost400,(width/2+250,300))
+            pygame.display.update()
     elif(type == 4):
         vakjes[positie] = 2
         if(positie == 1):
             player2.money = player2.money - 60
+            windowSurface.blit(kost60,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 3):
             player2.money = player2.money - 60
+            windowSurface.blit(kost60,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 5):
             player2.money = player2.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 6):
             player2.money = player2.money - 100
+            windowSurface.blit(kost100,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 8):
             player2.money = player2.money - 100
+            windowSurface.blit(kost100,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 9):
             player2.money = player2.money - 120
+            windowSurface.blit(kost120,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 11):
             player2.money = player2.money - 140
+            windowSurface.blit(kost140,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 12):
             player2.money = player2.money - 150
+            windowSurface.blit(kost150,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 13):
             player2.money = player2.money - 140
+            windowSurface.blit(kost140,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 14):
             player2.money = player2.money - 160
+            windowSurface.blit(kost160,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 15):
             player2.money = player2.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 16):
             player2.money = player2.money - 180
+            windowSurface.blit(kost180,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 18):
             player2.money = player2.money - 180
+            windowSurface.blit(kost180,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 19):
             player2.money = player2.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 21):
             player2.money = player2.money - 220
+            windowSurface.blit(kost220,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 23):
             player2.money = player2.money - 220
+            windowSurface.blit(kost220,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 24):
             player2.money = player2.money - 240
+            windowSurface.blit(kost240,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 25):
             player2.money = player2.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 26):
             player2.money = player2.money - 260
+            windowSurface.blit(kost260,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 27):
             player2.money = player2.money - 260
+            windowSurface.blit(kost260,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 28):
             player2.money = player2.money - 150
+            windowSurface.blit(kost150,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 29):
             player2.money = player2.money - 280
+            windowSurface.blit(kost280,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 31):
             player2.money = player2.money - 300
+            windowSurface.blit(kost300,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 32):
             player2.money = player2.money - 300
+            windowSurface.blit(kost300,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 34):
             player2.money = player2.money - 320
+            windowSurface.blit(kost320,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 35):
             player2.money = player2.money - 200
+            windowSurface.blit(kost200,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 37):
             player2.money = player2.money - 350
+            windowSurface.blit(kost350,(width/2+250,300))
+            pygame.display.update()
         elif(positie == 39):
             player2.money = player2.money - 400   
+            windowSurface.blit(kost400,(width/2+250,300))
+            pygame.display.update()
 def dobbelen():
     global int1
     global int2
