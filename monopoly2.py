@@ -526,7 +526,7 @@ def positie1(gedobbeltnummer): #wordt afgeprint op width/2+200,340
         elif(speler1positie == 36):
             player1.y_pos = 470
         elif(speler1positie == 37):
-             player1.y_pos = 560
+             player1.y_pos = 560 #changed
         elif(speler1positie == 38):
             player1.y_pos = 610
         elif(speler1positie == 39):
@@ -575,7 +575,7 @@ def positie2(gedobbeltnummer):
         elif(speler2positie == 8):
              player2.x_pos = 187
         elif(speler2positie == 9):
-             player2.x_pos = 120
+             player2.x_pos = 130
         elif(speler2positie == 10):
             player2.x_pos = 50
     elif(10 < speler2positie <= 20 ):
@@ -599,7 +599,7 @@ def positie2(gedobbeltnummer):
         elif(speler2positie == 18):
                 player2.y_pos = 190
         elif(speler2positie == 19):
-                player2.y_pos = 120 
+                player2.y_pos = 130 
         elif(speler2positie == 20):
                 player2.y_pos = 50
     elif(20 < speler2positie <= 30):
@@ -643,7 +643,7 @@ def positie2(gedobbeltnummer):
         elif(speler2positie == 36):
             player2.y_pos = 470
         elif(speler2positie == 37):
-             player2.y_pos = 540
+             player2.y_pos = 560
         elif(speler2positie == 38):
             player2.y_pos = 610
         elif(speler2positie == 39):
