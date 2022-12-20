@@ -53,10 +53,10 @@ tijdingevangenis = 0
 vakjes = [0] * 40
 
 #players
-hat = pygame.image.load('./monopoly-hat-01.jpg').convert()
+hat = pygame.image.load('./hoed.png').convert()
 hat = pygame.transform.scale(hat,(25,25))
 player1 = player(hat,750,750,1500,0,"player1")
-dog = pygame.image.load('./dog.jpg').convert()
+dog = pygame.image.load('./dog.png').convert()
 dog = pygame.transform.scale(dog,(25,25))
 player2 = player(dog,750,750,1500,0,"player2")
 #Set up fonts
@@ -80,28 +80,30 @@ construction = pygame.image.load('./UnderConstruct.jpg').convert()
 #texten
 
 text = basicFont.render('Play', True, RED)
-plus25 = smallfont.render('Je wint met bingo: plus 25',True, BLACK)
-plus50 = smallfont.render('Je vind een portefeuille: plus 50',TRUE, BLACK)
-plus100 = smallfont.render('Je ontmoet Bill Gates: plus 100',TRUE,BLACK)
-plus150 = smallfont.render('Je wint de lotto: plus 150',True,BLACK)
-min25 = smallfont.render('Je verliest met poker: min 25',True, BLACK)
-min50 = smallfont.render('Je verliest je portefeuille: min 50',TRUE, BLACK)
-min100 = smallfont.render('Betrapt op geld witwassen boete: min 100',TRUE,BLACK)
-min150 = smallfont.render('Je word overvallen: min 150',True,BLACK)
-pos5 = smallfont.render('Je rijd electrische: 5 plaatsen vooruit',True, BLACK)
-pos10 = smallfont.render('Je kent iemand bij de luchthaven: 10 plaatsen vooruit',True, BLACK)
-pos2 = smallfont.render('Je kan carpoolen: 2 plaatsen vooruit',True, BLACK)
-pos12 = smallfont.render('Je vliegt privé: 12 plaatsen vooruit',True, BLACK)
-posmin5 = smallfont.render('opslag benzine prijzen: 5 plaatsen terug',True, BLACK)
-posmin10 = smallfont.render('vliegtuig problemen: 10 plaatsen terug',True, BLACK)
-posmin2 = smallfont.render('lekke band: 2 plaatsen terug',True, BLACK)
-posmin12 = smallfont.render('auto ongeluk: 12 plaatsen terug',True, BLACK)
-gevangengen = smallfont.render('je zit in de gevangenis',True,BLACK)
-naargevangen = smallfont.render('naar de gevangenis',True,BLACK)
-opvrijparkeren = smallfont.render('Je krijgt de pot',True,BLACK)
+plus25 = smallfont.render("Je wint met bingo: plus 25",True, BLACK)
+plus50 = smallfont.render("Je vind een portefeuille: plus 50",TRUE, BLACK)
+plus100 = smallfont.render("Je ontmoet Bill Gates: plus 100",TRUE,BLACK)
+plus150 = smallfont.render("Je wint de lotto: plus 150",True,BLACK)
+min25 = smallfont.render("Je verliest met poker: min 25",True, BLACK)
+min50 = smallfont.render("Je verliest je portefeuille: min 50",TRUE, BLACK)
+min100 = smallfont.render("Betrapt op geld witwassen boete: min 100",TRUE,BLACK)
+min150 = smallfont.render("Je word overvallen: min 150",True,BLACK)
+pos5 = smallfont.render("Je rijd electrische: 5 plaatsen vooruit",True, BLACK)
+pos10 = smallfont.render("Je kent iemand bij de luchthaven: 10 plaatsen vooruit",True, BLACK)
+pos2 = smallfont.render("Je kan carpoolen: 2 plaatsen vooruit",True, BLACK)
+pos12 = smallfont.render("Je vliegt privé: 12 plaatsen vooruit",True, BLACK)
+posmin5 = smallfont.render("opslag benzine prijzen: 5 plaatsen terug",True, BLACK)
+posmin10 = smallfont.render("vliegtuig problemen: 10 plaatsen terug",True, BLACK)
+posmin2 = smallfont.render("lekke band: 2 plaatsen terug",True, BLACK)
+posmin12 = smallfont.render("auto ongeluk: 12 plaatsen terug",True, BLACK)
+gevangengen = smallfont.render("je zit in de gevangenis",True,BLACK)
+naargevangen = smallfont.render("naar de gevangenis",True,BLACK)
+opvrijparkeren = smallfont.render("Je krijgt de pot",True,BLACK)
 Monopoly = Largefont.render('Monopoly',True, BLUE)
 player1wint = Largefont.render('Player 1 wint', True, WHITE)
 player2wint = Largefont.render('Player 2 wint', True, WHITE)
+beurt1 = smallfont.render("speler 1 aan de beurt", True,WHITE)
+beurt2 = smallfont.render("speler 2 is aan de beurt", True, WHITE)
 
 #dobbelstenen
 
@@ -195,15 +197,19 @@ def algemeenfonds(type):
         if kansint == x:
             if type == 1:
                 speler1positie += 5
-                windowSurface.blit(pos5,(width/2+250, 250))
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
+                windowSurface.blit(pos5,(width/2+250, 300))
             if type == 2:
                 speler2positie += 5
-                windowSurface.blit(pos5,(width/2+250, 250))
+                windowSurface.blit(pos5,(width/2+250, 300))
     for x in list2:
         if kansint == x:
             if type == 1:
                 speler1positie += 10
-                windowSurface.blit(pos10,(width/2+250, 250))
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
+                windowSurface.blit(pos10,(width/2+250, 300))
             if type == 2:
                 speler2positie += 10
                 windowSurface.blit(pos10,(width/2+250, 250))
@@ -211,23 +217,29 @@ def algemeenfonds(type):
         if kansint == x:
             if type == 1:
                 speler1positie += 2
-                windowSurface.blit(pos2,(width/2+250, 250))
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
+                windowSurface.blit(pos2,(width/2+250, 300))
             if type == 2:
                 speler2positie += 2
                 windowSurface.blit(pos2,(width/2+250, 250))
     for x in list4:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))               
                 speler1positie += 12
-                windowSurface.blit(pos12,(width/2+250, 250))
+                windowSurface.blit(pos12,(width/2+250, 300))
             if type == 2:
                 speler2positie += 12
                 windowSurface.blit(pos12,(width/2+250, 250))
     for x in list5:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))                
                 speler1positie -= 5
-                windowSurface.blit(posmin5,(width/2+250, 250))
+                windowSurface.blit(posmin5,(width/2+250, 300))
             if type == 2:
                 speler2positie -= 5
                 windowSurface.blit(posmin5,(width/2+250, 250))
@@ -235,7 +247,9 @@ def algemeenfonds(type):
         if kansint == x:
             if type == 1:
                 speler1positie -= 10
-                windowSurface.blit(posmin10,(width/2+250, 250))
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))                
+                windowSurface.blit(posmin10,(width/2+250, 300))
             if type == 2:
                 speler2positie -= 10
                 windowSurface.blit(posmin10,(width/2+250, 250))
@@ -243,15 +257,19 @@ def algemeenfonds(type):
         if kansint == x:
             if type == 1:
                 speler1positie -= 2
-                windowSurface.blit(posmin2,(width/2+250, 250))
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))  
+                windowSurface.blit(posmin2,(width/2+250, 300))
             if type == 2:
                 speler2positie -= 2
                 windowSurface.blit(posmin2,(width/2+250, 250))
     for x in list8:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))  
                 speler1positie -= 12
-                windowSurface.blit(posmin12,(width/2+250, 250))
+                windowSurface.blit(posmin12,(width/2+250, 300))
             if type == 2:
                 speler2positie -= 12
                 windowSurface.blit(posmin12,(width/2+250, 250))
@@ -273,63 +291,80 @@ def kans(type):
         if kansint == x:
             if type == 1:
                 player1.money += 50
-                windowSurface.blit(plus50,(width/2+250, 250))
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
+                windowSurface.blit(plus50,(width/2+250, 300))
             if type == 2:
                 player2.money += 50
                 windowSurface.blit(plus50,(width/2+250, 250))
     for x in list2:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money += 25
-                windowSurface.blit(plus25,(width/2+250, 250))
+                windowSurface.blit(plus25,(width/2+250, 300))
             if type == 2:
+                
                 player2.money += 25
                 windowSurface.blit(plus25,(width/2+250, 250))
     for x in list3:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money += 100
-                windowSurface.blit(plus100,(width/2+250, 250))
+                windowSurface.blit(plus100,(width/2+250, 300))
             if type == 2:
                 player2.money += 100
                 windowSurface.blit(plus100,(width/2+250, 250))
     for x in list4:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money += 150
-                windowSurface.blit(plus150,(width/2+250, 250))
+                windowSurface.blit(plus150,(width/2+250, 300))
             if type == 2:
                 player2.money += 150
                 windowSurface.blit(plus150,(width/2+250, 250))
     for x in list5:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money -= 50
-                windowSurface.blit(min50,(width/2+250, 250))
+                windowSurface.blit(min50,(width/2+250, 300))
             if type == 2:
                 player2.money -= 50
                 windowSurface.blit(min50,(width/2+250, 250))
     for x in list6:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money -= 25
-                windowSurface.blit(min25,(width/2+250, 250))
+                windowSurface.blit(min25,(width/2+250, 300))
             if type == 2:
                 player2.money -= 25
                 windowSurface.blit(min25,(width/2+250, 250))
     for x in list7:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money -= 100
-                windowSurface.blit(min100,(width/2+250, 250))
+                windowSurface.blit(min100,(width/2+250, 300))
             if type == 2:
                 player2.money -= 100
                 windowSurface.blit(min100,(width/2+250, 250))
     for x in list8:
         if kansint == x:
             if type == 1:
+                pygame.draw.rect(windowSurface, RED, pygame.Rect(width/2+200,150,400,150))
+                windowSurface.blit(beurt1,(width/2+250, 200))
                 player1.money -= 150
-                windowSurface.blit(min150,(width/2+250, 250))
+                windowSurface.blit(min150,(width/2+250, 300))
             if type == 2:
                 player2.money -= 150
                 windowSurface.blit(min150,(width/2+250, 250))
@@ -1402,8 +1437,6 @@ def Player2():
     global dubbel
     global int1
     global int2
-    beurt1 = smallfont.render("speler 1 aan de beurt", True,WHITE)
-    beurt2 = smallfont.render("speler 2 is aan de beurt", True, WHITE)
     dobbel = Button(button, pos=(width/2, 450), 
                         text_input="dobbel", font=get_font(20), base_color=WHITE, hovering_color=GREEN)
     while True:
