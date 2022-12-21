@@ -105,8 +105,8 @@ player2wint = Largefont.render('Player 2 wint', True, WHITE)
 beurt1 = smallfont.render("speler 1 aan de beurt", True,WHITE)
 beurt2 = smallfont.render("speler 2 is aan de beurt", True, WHITE)
 
-tax = smallfont.render('Belastingaangift -200',TRUE,BLACK)
-supertax = smallfont.render('bedrijfstaxen -100',TRUE,BLACK)
+tax = smallfont.render('Belastingaangifte: -200',TRUE,BLACK)
+supertax = smallfont.render('bedrijfstaxen: -100',TRUE,BLACK)
 eigenaar = smallfont.render('Jij bent de eigenaar', TRUE,BLACK)
 opbezoek = smallfont.render('Op bezoek',TRUE,BLACK)
 opstart = smallfont.render('Start!',True,BLACK)
@@ -523,11 +523,11 @@ def positie1(gedobbeltnummer): #wordt afgeprint op width/2+200,340
         elif speler1positie == 11:
                 player1.y_pos = 650 #changed
         elif speler1positie ==12:
-                player1.y_pos = 610
+                player1.y_pos = 590
         elif speler1positie == 13:
-                player1.y_pos = 520
+                player1.y_pos = 200 #changed
         elif speler1positie == 14:
-                player1.y_pos = 470
+                player1.y_pos = 450
         elif speler1positie == 15:
                 player1.y_pos = 400
         elif speler1positie == 16:
@@ -639,11 +639,11 @@ def positie2(gedobbeltnummer):
         elif speler2positie == 11:
                 player2.y_pos = 650 #changed
         elif speler2positie ==12:
-                player2.y_pos = 610
+                player2.y_pos = 590
         elif speler2positie == 13:
-                player2.y_pos = 540
+                player2.y_pos = 500
         elif speler2positie == 14:
-                player2.y_pos = 470  
+                player2.y_pos = 450  
         elif speler2positie == 15:
                 player2.y_pos = 400
         elif speler2positie == 16:
