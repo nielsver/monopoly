@@ -1,4 +1,3 @@
-import pygame
 from string import capwords
 
 
@@ -17,7 +16,3 @@ class player():
         
     
         
-    #def checkmoney(money, self):
-     #   return self.money
-    #def checkcards(cards, self):
-     #   return self.cards
